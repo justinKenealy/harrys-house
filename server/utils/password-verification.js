@@ -11,8 +11,7 @@ const generateHash = (password) => {
     if (typeof password !== 'string' || !password) {
       throw new Error()
     }
-    const result = bcrypt.compareSync(password, password_hash)
-    return result
+    return bcrypt.compareSync(password, password_hash)
   }
 
-export { generateHash, comparePassword }
+module.exports = { generateHash, comparePassword }

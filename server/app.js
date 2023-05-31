@@ -5,7 +5,7 @@ const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 
 const db = require("./db");
-const usersController = require('./controllers/users')
+const usersRouter = require('./controllers/users')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,7 +25,7 @@ app.use(
 app.use(express.static("client"));
 app.use(express.json());
 
-app.use("/api/users", usersController);
+app.use("/api/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log("Listening on port", PORT);
