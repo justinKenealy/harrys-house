@@ -7,6 +7,7 @@ const pgSession = require("connect-pg-simple")(session);
 const db = require("./db");
 const usersRouter = require('./controllers/users')
 const sessionRouter = require('./controllers/session')
+const productsRouter = require('./controllers/products')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.use(express.json());
 
 app.use("/api/users", usersRouter);
 app.use("/api/session", sessionRouter);
+app.use("/api/products", productsRouter);
 
 app.listen(PORT, () => {
   console.log("Listening on port", PORT);
