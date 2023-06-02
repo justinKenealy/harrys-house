@@ -1,7 +1,6 @@
 import { Card, CardBody, CardFooter, CardHeader, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
-
 const Products = () => {
     const [products, setProducts] = useState(null);
 
@@ -10,7 +9,7 @@ const Products = () => {
         const res = await fetch("/api/products");
         const data = await res.json();
 
-        console.log(data.user);
+        console.log(data);
         setProducts(data.user);
       };
       getProducts();
