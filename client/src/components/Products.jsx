@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, CardHeader, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import ProductFilterTab from "./ProductFilterTab";
 import "./Products.css"
@@ -23,9 +23,9 @@ const Products = () => {
     }, []);
 
   return (
-    <>
-    <ProductSearchBar searchText={searchText} setSearchText={setSearchText}/>
-    <ProductFilterTab productFilter={productFilter} setProductFilter={setProductFilter}/>
+    <div id="storePageBody">
+    <div id="productSearchBar"><ProductSearchBar searchText={searchText} setSearchText={setSearchText}/></div>
+    <div id="productFilterTab"><ProductFilterTab productFilter={productFilter} setProductFilter={setProductFilter}/></div>
     <SimpleGrid id="productGrid" spacing={2} width="80%" margin="0 auto">
         {products &&
           products.map((product) => (
@@ -34,15 +34,17 @@ const Products = () => {
                 <Heading size="md">{product.name}</Heading>
               </CardHeader>
               <CardBody>
+                <Image src="http://placedog.net/500"/>
                 <Text>{product.description}</Text>
+                <Text>{product.price}</Text>
               </CardBody>
               <CardFooter>
-                <Text>{product.price}</Text>
+                <Button margin="0 auto">Add to Cart</Button>
               </CardFooter>
             </Card>
           ))}
       </SimpleGrid>
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ const NavBar = ({ user }) => {
   return (
     <>
       <Box
-        bg="#a6d598"
+        bg="rgb(255, 169, 112)"
         w="100%"
         h="80px"
         display="flex"

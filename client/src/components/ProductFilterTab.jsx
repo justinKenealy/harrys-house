@@ -1,6 +1,5 @@
-import { ChevronDownIcon, CloseIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  Input,
   Menu,
   MenuButton,
   MenuDivider,
@@ -9,10 +8,6 @@ import {
 } from "@chakra-ui/react";
 
 const ProductFilterTab = ({ productFilter, setProductFilter }) => {
-  const handleSearchChange = (event) => {
-    setSearchText(event.target.value);
-  };
-
   return productFilter ? (
     <Menu>
       <MenuButton

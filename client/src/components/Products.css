@@ -1,8 +1,28 @@
+#storePageBody {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    grid-template-rows: 60px 1fr;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+#productFilterTab {
+
+    margin: 15px;
+}
+
+#productSearchBar {
+    margin: 15px;
+}
+
 #productGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
+    grid-template-columns: repeat(auto-fit, 220px);
     gap: 10px;
     justify-content: center;
+    grid-row: 1;
+    grid-column: 2;
+    margin: 10px;
 }
 
 .productCard {
