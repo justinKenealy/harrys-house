@@ -1,32 +1,26 @@
 const axios = require("axios");
 const express = require("express");
 const { getAllUsers, registerUser } = require("../models/user");
-const { generateHash } = require("../utils/password-verification")
+const { generateHash } = require("../utils/password-verification");
 
 const router = express.Router();
 
 // register user
 router.post("/", async (req, res, next) => {
-  const { username, email, password1, password2 } =
-    Object.entries(req.body).reduce((obj, [key, value]) => {
-      obj[key] = value.trim();
-      return obj;
-    }, {});
+  const { username, email, password1, password2 } = Object.entries(
+    req.body
+  ).reduce((obj, [key, value]) => {
+    obj[key] = value.trim();
+    return obj;
+  }, {});
   try {
-    if (
-      !username ||
-      !email ||
-      !password1 ||
-      !password2
-    ) {
+    if (!username || !email || !password1 || !password2) {
       const customError = new Error("All fields must be complete.");
       customError.status = 400;
       return next(customError);
     }
     if (password1 !== password2) {
-      const customError = new Error(
-        "The passwords do not match. Please try again"
-      );
+      const customError = new Error("The passwords do not match.");
       customError.status = 400;
       return next(customError);
     }
@@ -50,7 +44,7 @@ router.post("/", async (req, res, next) => {
     const passwordHash = generateHash(password1);
 
     const data = await registerUser(username, email, passwordHash);
-  
+
     return res.status(200).json(data);
   } catch (err) {
     next(err);
@@ -67,4 +61,4 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-module.exports = router 
+module.exports = router;
