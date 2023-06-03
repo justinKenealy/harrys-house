@@ -1,9 +1,10 @@
 import { Button, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 const LandingPage = () => {
   const handleShopNowBtn = () => {
-    <Navigate to="/store" />;
+    <Navigate to="/store" replace/>;
   };
 
   return (

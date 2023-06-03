@@ -1,6 +1,7 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
+import './Navbar.css'
 
 const NavBar = ({ user }) => {
   return (
@@ -14,12 +15,12 @@ const NavBar = ({ user }) => {
         alignItems="center"
       >
           <Heading color="white">Harry's House 🦊</Heading>
-          <Link to="/">Home</Link>
-          <Link to="/store">Store</Link>
-          { user && <Link to="/account">Account</Link>}
-          { user && <Link><LogoutButton>Logout</LogoutButton></Link>}
-          { !user && <Link to="/login">Login</Link>}
-          <Link to="/cart">Cart</Link>
+          <Link className="navItem" to="/">Home</Link>
+          <Link className="navItem" to="/store">Store</Link>
+          { user && <Link className="navItem" to="/account">Account</Link>}
+          { user && <Link className="navItem"><LogoutButton>Logout</LogoutButton></Link>}
+          { !user && <Link className="navItem" to="/login">Login</Link>}
+          <Link className="navItem" to="/cart">Cart</Link>
       </Box>
     </>
   );

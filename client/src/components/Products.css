@@ -1,0 +1,11 @@
+#productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.productCard {
+    width: 100%;
+    background-color: rgb(246, 246, 90);
+}

@@ -1,5 +1,6 @@
 import { Card, CardBody, CardFooter, CardHeader, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import "./Products.css"
 
 const Products = () => {
     const [products, setProducts] = useState(null);
@@ -17,10 +18,10 @@ const Products = () => {
 
   return (
     <>
-    <SimpleGrid spacing={2} width="80%" margin="0 auto" templateColumns="1">
+    <SimpleGrid id="productGrid" spacing={2} width="80%" margin="0 auto">
         {products &&
           products.map((product) => (
-            <Card key={product.id}>
+            <Card className="productCard" key={product.id}>
               <CardHeader>
                 <Heading size="md">{product.name}</Heading>
               </CardHeader>
