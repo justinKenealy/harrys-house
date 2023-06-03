@@ -21,6 +21,7 @@ const ProductFilterTab = ({ productFilter, setProductFilter }) => {
         _focus={{ boxShadow: "outline" }}
         width="90%"
         margin="0 auto"
+        textAlign="left"
       >
         Filtered by '{productFilter}'
         <ChevronDownIcon />

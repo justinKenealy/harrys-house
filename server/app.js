@@ -5,9 +5,9 @@ const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 
 const db = require("./db");
-const usersRouter = require('./controllers/users')
-const sessionRouter = require('./controllers/session')
-const productsRouter = require('./controllers/products')
+const usersRouter = require("./controllers/users");
+const sessionRouter = require("./controllers/session");
+const productsRouter = require("./controllers/products");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +24,8 @@ app.use(
   })
 );
 
-app.use(express.static("client"));
+app.use(express.static('public'))
+
 app.use(express.json());
 
 app.use("/api/users", usersRouter);

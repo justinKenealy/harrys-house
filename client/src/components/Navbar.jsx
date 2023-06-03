@@ -11,10 +11,13 @@ const NavBar = ({ user }) => {
         w="100%"
         h="80px"
         display="flex"
-        justifyContent={"space-around"}
+        justifyContent={"space-between"}
         alignItems="center"
       >
-          <Heading color="white">Harry's House 🦊</Heading>
+          <div id="logoAndHeading">
+          <img width="70px" src="http://localhost:3000/assets/logo/corgi_logo2.png"/>
+          <Heading textAlign="left" padding="12px 0 0 10px" color="white">Harry's House</Heading>
+          </div>
           <nav id="navBar">
             <Link className="navItem" to="/">Home</Link>
             <Link className="navItem" to="/store">Store</Link>

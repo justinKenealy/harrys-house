@@ -1,6 +1,7 @@
-/* #navBar {
-
-} */
+#logoAndHeading {
+    display: flex;
+    margin-left: 15px;
+}
 
 .navItem {
     padding: 8px 12px;
