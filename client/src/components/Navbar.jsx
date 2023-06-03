@@ -8,7 +8,7 @@ const NavBar = ({ user }) => {
       <Box
         bg="#a6d598"
         w="100%"
-        h="50px"
+        h="80px"
         display="flex"
         justifyContent={"space-around"}
         alignItems="center"

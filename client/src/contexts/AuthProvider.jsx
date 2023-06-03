@@ -27,7 +27,6 @@ export const AuthProvider = ({ children }) => {
     const res = await fetch("api/session", {
       method: "DELETE",
     });
-    console.log('logout button clicked')
     setUser(null)
   };
 
