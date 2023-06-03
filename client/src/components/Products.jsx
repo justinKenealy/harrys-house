@@ -26,18 +26,18 @@ const Products = () => {
     <div id="storePageBody">
     <ProductSearchBar searchText={searchText} setSearchText={setSearchText}/>
     <ProductFilterTab productFilter={productFilter} setProductFilter={setProductFilter}/>
-    <SimpleGrid id="productGrid" spacing={2} width="80%" margin="0 auto">
+    <SimpleGrid id="productGrid" spacing={2} margin="0 auto">
         {products &&
           products.map((product) => (
             <Card className="productCard" key={product.id}>
-              <CardHeader>
-                <Image src="http://placedog.net/500"/>
+              <CardHeader padding="10px">
+                <img className="productImg" src={product.img_url}/>
               </CardHeader>
               <CardBody>
-                <Heading margin="10px 0" size="md">{product.name}</Heading>
+                <Heading size="md">{product.name}</Heading>
                 <Text margin="10px 0 0 0">${product.price}</Text>
               </CardBody>
-              <CardFooter>
+              <CardFooter padding="0px 20px 20px 20px">
                 <Button margin="0 auto">Add to Cart</Button>
               </CardFooter>
             </Card>

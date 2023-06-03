@@ -37,8 +37,8 @@ const ProductFilterTab = ({ productFilter, setProductFilter }) => {
         transition="all 0.2s"
         borderRadius="md"
         borderWidth="1px"
-        _hover={{ bg: "gray.400" }}
-        _expanded={{ bg: "blue.400" }}
+        _hover={{ bg: "#86BBD8" }}
+        _expanded={{ bg: "#86BBD8" }}
         _focus={{ boxShadow: "outline" }}
         width="90%"
         margin="0 auto"
@@ -46,16 +46,18 @@ const ProductFilterTab = ({ productFilter, setProductFilter }) => {
         Filter by animal   
         <ChevronDownIcon />
       </MenuButton>
-      <MenuList>
-        <MenuItem onClick={()=> {setProductFilter('Dog')}}>Dog</MenuItem>
+      <MenuList matchWidth={true}>
+        <MenuItem onClick={()=> {setProductFilter(1)}}>Dog</MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter('Cat')}}>Cat</MenuItem>
+        <MenuItem onClick={()=> {setProductFilter(2)}}>Cat</MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter('Bird')}}>Bird</MenuItem>
+        <MenuItem onClick={()=> {setProductFilter(3)}}>Bird</MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter('Fish')}}>Fish</MenuItem>
+        <MenuItem onClick={()=> {setProductFilter(4)}}>Fish</MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter('Other')}}>Other</MenuItem>
+        <MenuItem onClick={()=> {setProductFilter(5)}}>Other</MenuItem>
+        <MenuDivider />
+        <MenuItem>Cancel</MenuItem>
       </MenuList>
     </Menu>
   );

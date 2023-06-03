@@ -8,15 +8,21 @@
 
 #productGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200, 250));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     justify-content: center;
-    grid-row: 1;
+    grid-row: 1/2;
     grid-column: 2;
     margin: 10px;
 }
 
 .productCard {
-    width: 100%;
+    max-width: 220px;
     background-color: rgb(246, 246, 90);
+}
+
+.productImg {
+    max-width: 100%;
+    max-height: 150px;
+    margin: 0 auto;
 }
