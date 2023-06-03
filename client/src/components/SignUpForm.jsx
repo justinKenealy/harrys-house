@@ -1,6 +1,7 @@
 import { Button, Input } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
+import ValidPasswordPopup from "./ValidPasswordPopup";
 
 const SignUpForm = () => {
   const { register } = useAuth();
@@ -75,7 +76,8 @@ const SignUpForm = () => {
       />
         {password && (
           <div style={{ color: isValid ? "green" : "red" }}>
-            {isValid ? "Valid Password" : "Too weak"}
+            {isValid ? "Valid Password " : "Too weak  "}
+            <ValidPasswordPopup />
           </div>
         )}
       <Input
