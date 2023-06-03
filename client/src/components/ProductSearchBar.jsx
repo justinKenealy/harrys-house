@@ -6,7 +6,9 @@ const ProductSearchBar = ({ searchText, setSearchText }) => {
   };
 
   return (
-    <Input
+    <Input 
+      width="90%"
+      margin="10px auto 0 auto"
       type="text"
       placeholder="Search products"
       value={searchText}

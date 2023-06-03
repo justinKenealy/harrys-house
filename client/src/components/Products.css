@@ -6,18 +6,9 @@
     margin: 0 auto;
 }
 
-#productFilterTab {
-
-    margin: 15px;
-}
-
-#productSearchBar {
-    margin: 15px;
-}
-
 #productGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
+    grid-template-columns: repeat(auto-fit, minmax(200, 250));
     gap: 10px;
     justify-content: center;
     grid-row: 1;
