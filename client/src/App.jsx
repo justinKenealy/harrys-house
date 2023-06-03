@@ -19,8 +19,8 @@ function App() {
     <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/login" element={<LoginPage user={user}/>} />
+        <Route path="/account" element={<AccountPage user={user}/>} />
         <Route path="/cart" element={<CartPage />} />
     </Routes>
     </>

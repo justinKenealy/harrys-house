@@ -1,11 +1,14 @@
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
+import { Navigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 import "./Login.css"
 
 import "./Login.css"
 
-const LoginPage = () => {
+const LoginPage = ({user}) => {
+  return user ? <Navigate to="/account" /> : null
+    
   return (
     <div id="loginPage">
       <div id="accountMessage">Welcome to Harry's House! Login or create an account</div>
