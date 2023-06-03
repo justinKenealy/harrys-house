@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS products CASCADE;
-DROP TABLE IF EXISTS favourite_products CASCADE;
+DROP TABLE IF EXISTS wishlist_products CASCADE;
 DROP TABLE IF EXISTS reviews CASCADE;
 DROP TABLE IF EXISTS orders CASCADE;
 DROP TABLE IF EXISTS order_items CASCADE;
@@ -15,13 +15,15 @@ CREATE TABLE users (
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    img_url VARCHAR(255),
     description TEXT,
     stock INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
+    category INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE favourite_products (
+CREATE TABLE wishlist_products (
     user_id INT NOT NULL,
     product_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id),
