@@ -35,8 +35,8 @@ const Products = () => {
                 <img className="productImg" src={product.img_url}/>
               </CardHeader>
               <CardBody>
-                <Heading className="productTitle" size="md">{product.name}</Heading>
-                <ProductInfoPopup name={product.name} img={product.img_url} description={product.description}/>
+                <Heading className="productTitle" size="md"><ProductInfoPopup name={product.name} img={product.img_url} description={product.description}/></Heading>
+                
                 <Text margin="10px 0 0 0">${product.price}</Text>
               </CardBody>
               <CardFooter padding="0px 20px 20px 20px">
