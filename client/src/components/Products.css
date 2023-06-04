@@ -26,3 +26,9 @@
     max-height: 150px;
     margin: 0 auto;
 }
+
+.productTitle:hover {
+    color: #336699;
+    text-decoration: underline;
+    cursor: pointer;
+}

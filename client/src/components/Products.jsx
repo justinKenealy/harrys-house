@@ -1,5 +1,6 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import AddToCartBtn from "./AddToCartBtn";
 import ProductFilterTab from "./ProductFilterTab";
 import "./Products.css"
 import ProductSearchBar from "./ProductSearchBar";
@@ -15,8 +16,6 @@ const Products = () => {
       const getProducts = async () => {
         const res = await fetch("/api/products");
         const data = await res.json();
-
-        console.log(data);
         setProducts(data.user);
       };
       getProducts();
@@ -34,11 +33,11 @@ const Products = () => {
                 <img className="productImg" src={product.img_url}/>
               </CardHeader>
               <CardBody>
-                <Heading size="md">{product.name}</Heading>
+                <Heading className="productTitle" size="md">{product.name}</Heading>
                 <Text margin="10px 0 0 0">${product.price}</Text>
               </CardBody>
               <CardFooter padding="0px 20px 20px 20px">
-                <Button margin="0 auto">Add to Cart</Button>
+                <AddToCartBtn productTitle={product.name}/>
               </CardFooter>
             </Card>
           ))}
