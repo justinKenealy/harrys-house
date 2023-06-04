@@ -8,6 +8,21 @@ import {
 } from "@chakra-ui/react";
 
 const ProductFilterTab = ({ productFilter, setProductFilter }) => {
+  const ProductFilterLabel = () => {
+    switch (productFilter) {
+      case 1:
+        return "Dog";
+      case 2:
+        return "Cat";
+      case 3:
+        return "Bird";
+      case 4:
+        return "Fish";
+      case 5:
+        return "Other";
+    }
+  };
+
   return productFilter ? (
     <Menu width="90%">
       <MenuButton
@@ -23,11 +38,17 @@ const ProductFilterTab = ({ productFilter, setProductFilter }) => {
         margin="0 auto"
         textAlign="left"
       >
-        Filtered by '{productFilter}'
+        Filter: '{ProductFilterLabel()}' 
         <ChevronDownIcon />
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={()=> {setProductFilter('')}}>Clear filter</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter("");
+          }}
+        >
+          Clear filter
+        </MenuItem>
       </MenuList>
     </Menu>
   ) : (
@@ -44,19 +65,49 @@ const ProductFilterTab = ({ productFilter, setProductFilter }) => {
         width="90%"
         margin="0 auto"
       >
-        Filter by animal   
+        Filter by animal
         <ChevronDownIcon />
       </MenuButton>
       <MenuList matchWidth={true}>
-        <MenuItem onClick={()=> {setProductFilter(1)}}>Dog</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter(1);
+          }}
+        >
+          Dog
+        </MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter(2)}}>Cat</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter(2);
+          }}
+        >
+          Cat
+        </MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter(3)}}>Bird</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter(3);
+          }}
+        >
+          Bird
+        </MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter(4)}}>Fish</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter(4);
+          }}
+        >
+          Fish
+        </MenuItem>
         <MenuDivider />
-        <MenuItem onClick={()=> {setProductFilter(5)}}>Other</MenuItem>
+        <MenuItem
+          onClick={() => {
+            setProductFilter(5);
+          }}
+        >
+          Other
+        </MenuItem>
         <MenuDivider />
         <MenuItem>Cancel</MenuItem>
       </MenuList>
