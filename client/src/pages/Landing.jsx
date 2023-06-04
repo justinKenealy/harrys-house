@@ -1,11 +1,8 @@
 import { Button, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const LandingPage = () => {
-  const handleShopNowBtn = () => {
-    <Navigate to="/store" replace/>;
-  };
 
   return (
     <div>
@@ -14,7 +11,7 @@ const LandingPage = () => {
         We offer a wide range of pet supplies and accessories for your best
         friends no matter their shape or size.
       </Text>
-      <Button onClick={handleShopNowBtn}>Shop Now</Button>
+      <Link to="/store"><Button>Shop Now</Button></Link>
     </div>
   );
 };
