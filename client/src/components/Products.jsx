@@ -31,6 +31,19 @@ const Products = () => {
     getProducts();
   }, []);
 
+  const checkSearchQuery = (name, description) => {
+    if (searchText.length < 3) {
+      return true;
+    }
+    if (
+      name.toLowerCase().includes(searchText.toLowerCase()) ||
+      description.toLowerCase().includes(searchText.toLowerCase())
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div id="storePageBody">
       <ProductSearchBar searchText={searchText} setSearchText={setSearchText} />
@@ -40,8 +53,13 @@ const Products = () => {
       />
       <SimpleGrid id="productGrid" spacing={2} margin="0 auto">
         {productFilter
-          ? products && products
-              .filter((product) => product.category === productFilter)
+          ? products &&
+            products
+              .filter(
+                (product) =>
+                  product.category === productFilter &&
+                  checkSearchQuery(product.name, product.description)
+              )
               .map((product) => (
                 <Card className="productCard" key={product.id}>
                   <CardHeader padding="10px">
@@ -63,27 +81,32 @@ const Products = () => {
                   </CardFooter>
                 </Card>
               ))
-          : products && products.map((product) => (
-              <Card className="productCard" key={product.id}>
-                <CardHeader padding="10px">
-                  <img className="productImg" src={product.img_url} />
-                </CardHeader>
-                <CardBody>
-                  <Heading className="productTitle" size="md">
-                    <ProductInfoPopup
-                      name={product.name}
-                      img={product.img_url}
-                      description={product.description}
-                    />
-                  </Heading>
+          : products &&
+            products
+              .filter((product) =>
+                checkSearchQuery(product.name, product.description)
+              )
+              .map((product) => (
+                <Card className="productCard" key={product.id}>
+                  <CardHeader padding="10px">
+                    <img className="productImg" src={product.img_url} />
+                  </CardHeader>
+                  <CardBody>
+                    <Heading className="productTitle" size="md">
+                      <ProductInfoPopup
+                        name={product.name}
+                        img={product.img_url}
+                        description={product.description}
+                      />
+                    </Heading>
 
-                  <Text margin="10px 0 0 0">${product.price}</Text>
-                </CardBody>
-                <CardFooter padding="0px 20px 20px 20px">
-                  <AddToCartBtn productTitle={product.name} />
-                </CardFooter>
-              </Card>
-            ))}
+                    <Text margin="10px 0 0 0">${product.price}</Text>
+                  </CardBody>
+                  <CardFooter padding="0px 20px 20px 20px">
+                    <AddToCartBtn productTitle={product.name} />
+                  </CardFooter>
+                </Card>
+              ))}
       </SimpleGrid>
     </div>
   );
