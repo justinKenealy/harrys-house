@@ -14,3 +14,11 @@
     background-color: #86BBD8;
     color: black;
 }
+
+.selectedNavItem {
+    padding: 8px 12px;
+    margin: 0 10px;
+    border-radius: 10px;
+    color: black;
+    background-color: #86BBD8;
+}

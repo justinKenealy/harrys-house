@@ -14,7 +14,7 @@ const LoginPage = ({ user }) => {
       <div id="accountMessage">
         Welcome to Harry's House! Login or create an account
       </div>
-      <Tabs align="center">
+      <Tabs align="center" width="60%" maxWidth="600px" margin="0 auto">
         <TabList>
           <Tab>Login</Tab>
           <Tab>Sign Up</Tab>

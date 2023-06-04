@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import './Navbar.css'
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, setSelectedPage, selectedPage}) => {
+
+
   return (
     <>
       <Box
@@ -19,12 +21,12 @@ const NavBar = ({ user }) => {
           <Heading textAlign="left" padding="12px 0 0 10px" color="white">Harry's House</Heading>
           </div>
           <nav id="navBar">
-            <Link className="navItem" to="/">Home</Link>
-            <Link className="navItem" to="/store">Store</Link>
-            { user && <Link className="navItem" to="/account">Account</Link>}
+            <Link className={selectedPage === 'home' ? "selectedNavItem" :"navItem"} to="/" onClick={() => setSelectedPage('home')}>Home</Link>
+            <Link className={selectedPage === 'store' ? "selectedNavItem" :"navItem"} to="/store" onClick={() => setSelectedPage('store')}>Store</Link>
+            { user && <Link className={selectedPage === 'account' ? "selectedNavItem" :"navItem"} to="/account" onClick={() => setSelectedPage('account')}>Account</Link>}
             { user && <Link className="navItem"><LogoutButton>Logout</LogoutButton></Link>}
-            { !user && <Link className="navItem" to="/login">Login</Link>}
-            <Link className="navItem" to="/cart">Cart</Link>
+            { !user && <Link className={selectedPage === 'login' ? "selectedNavItem" :"navItem"} to="/login" onClick={() => setSelectedPage('login')}>Login</Link>}
+            <Link className={selectedPage === 'cart' ? "selectedNavItem" :"navItem"} to="/cart" onClick={() => setSelectedPage('cart')}>Cart</Link>
           </nav>
       </Box>
     </>

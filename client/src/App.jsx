@@ -12,10 +12,11 @@ import CartPage from './pages/Cart'
 function App() {
   const [count, setCount] = useState(0)
   const { user } = useAuth()
+  const [ selectedPage, setSelectedPage ] = useState('home')
 
   return (
     <>
-    <NavBar user={user} />
+    <NavBar user={user} selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
     <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/store" element={<Store />} />
