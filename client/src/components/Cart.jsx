@@ -1,9 +1,5 @@
 import {
   Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Divider,
   Text,
   Modal,
   ModalOverlay,
@@ -12,13 +8,15 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Image,
+  Center,
+  Heading,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
-import AddToCartBtn from "./AddToCartBtn";
 import ItemInCartCard from "./ItemInCartCard";
-import "./ProductInfoPopup.css";
+import "./Cart.css"
 
 const Cart = ({ showCart, handleCloseCart }) => {
   const cart = useContext(CartContext);
@@ -38,31 +36,47 @@ const Cart = ({ showCart, handleCloseCart }) => {
     });
   }
 
-  console.log(detailedCartItems);
-
   return (
     <>
       <Modal
         isOpen={showCart}
         onClose={handleCloseCart}
         scrollBehavior="inside"
+        size="2xl"
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Your cart</ModalHeader>
+          <ModalHeader fontSize="2xl">Cart</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Card>
-              <CardBody>
-                <CardHeader>Your cart</CardHeader>
-                {items && items.map((item) => <ItemInCartCard key={1} />)}
-              </CardBody>
-            </Card>
+            {detailedCartItems.length > 0 &&
+              detailedCartItems.map((item) => (
+                <ItemInCartCard
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                  img_url={item.img_url}
+                />
+              ))}
+            {items.length === 0 && (
+              <Center>
+                <Text>Your cart is empty.</Text>
+                <Image
+                  height="200px"
+                  src="http://localhost:3000/assets/logo/sadCorgi.png"
+                  margin="0 0 20px 0"
+                />
+              </Center>
+            )}
           </ModalBody>
-          <ModalFooter>
-            <Button>Checkout</Button>
-            <Button>Clear Cart</Button>
-          </ModalFooter>
+          {detailedCartItems.length > 0 && (
+            <ModalFooter id="cartFooter">
+              <Heading size="md">Total Cost: ${cart.getTotalCost()}</Heading>
+              <Button>Checkout</Button>
+            </ModalFooter>
+          )}
         </ModalContent>
       </Modal>
     </>
