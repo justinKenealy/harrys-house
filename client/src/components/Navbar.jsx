@@ -12,8 +12,7 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
   const handleShowCart = () => setShowCart(true);
   const cart = useContext(CartContext);
   const totalQuantityItems = cart.items.reduce(
-    (sum, item) => sum + item.quantity,
-    0
+    (sum, item) => sum + item.quantity, 0
   );
 
   return (
@@ -77,7 +76,7 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
               Login
             </Link>
           )}
-          <Link className="navItem" onClick={() => handleShowCart()}>
+          <Link className="navItem cartIcon" onClick={() => handleShowCart()}>
             <i
               className={totalQuantityItems > 0 ? "fa badge" : "fa"}
               style={{ fontSize: "24px" }}

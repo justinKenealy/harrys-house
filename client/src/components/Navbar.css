@@ -23,6 +23,10 @@
     background-color: #86BBD8;
 }
 
+.cartIcon {
+    margin-left: 5px;
+}
+
 .badge:after{
     content:attr(value);
     font-family: sans-serif;
