@@ -1,10 +1,15 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import Cart from "./Cart";
 import LogoutButton from "./LogoutButton";
 import "./Navbar.css";
+
+
+
+// fix bug where the navbar defaults to home''
+
 
 const NavBar = ({ user, setSelectedPage, selectedPage }) => {
   const [showCart, setShowCart] = useState(false);
@@ -14,6 +19,9 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
   const totalQuantityItems = cart.items.reduce(
     (sum, item) => sum + item.quantity, 0
   );
+  const location = useLocation()
+  setSelectedPage(location.pathname)
+
 
   return (
     <>
@@ -36,26 +44,23 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
         </div>
         <nav id="navBar">
           <Link
-            className={selectedPage === "home" ? "selectedNavItem" : "navItem"}
+            className={selectedPage === "/" ? "selectedNavItem" : "navItem"}
             to="/"
-            onClick={() => setSelectedPage("home")}
           >
             Home
           </Link>
           <Link
-            className={selectedPage === "store" ? "selectedNavItem" : "navItem"}
+            className={selectedPage === "/store" ? "selectedNavItem" : "navItem"}
             to="/store"
-            onClick={() => setSelectedPage("store")}
           >
             Store
           </Link>
           {user && (
             <Link
               className={
-                selectedPage === "account" ? "selectedNavItem" : "navItem"
+                selectedPage === "/account" ? "selectedNavItem" : "navItem"
               }
               to="/account"
-              onClick={() => setSelectedPage("account")}
             >
               Account
             </Link>
@@ -68,10 +73,9 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
           {!user && (
             <Link
               className={
-                selectedPage === "login" ? "selectedNavItem" : "navItem"
+                selectedPage === "/login" ? "selectedNavItem" : "navItem"
               }
               to="/login"
-              onClick={() => setSelectedPage("login")}
             >
               Login
             </Link>
