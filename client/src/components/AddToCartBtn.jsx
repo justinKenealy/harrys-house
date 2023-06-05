@@ -19,7 +19,7 @@ const AddToCartBtn = ({productTitle, productID}) => {
     cart.addItemToCart(productID)
   }
 
-  console.log(cart.items)
+  // console.log(cart.items)
 
   return (
     <Button

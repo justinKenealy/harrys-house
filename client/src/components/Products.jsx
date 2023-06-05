@@ -1,3 +1,4 @@
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import {
   Button,
   Card,
@@ -10,7 +11,9 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import AddToCartBtn from "./AddToCartBtn";
 import ProductFilterTab from "./ProductFilterTab";
@@ -22,8 +25,8 @@ const Products = () => {
   // const [products, setProducts] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [productFilter, setProductFilter] = useState(null);
-
-  const { products } = useProducts()
+  const cart = useContext(CartContext);
+  const { products } = useProducts();
 
   // useEffect(() => {
   //   const getProducts = async () => {
@@ -80,7 +83,29 @@ const Products = () => {
                     <Text margin="10px 0 0 0">${product.price}</Text>
                   </CardBody>
                   <CardFooter padding="0px 20px 20px 20px">
-                    <AddToCartBtn productTitle={product.name} productID={product.id}/>
+                    {cart.getProductQuantity(product.id) ? (
+                      <span style={{ margin: "0 auto" }}>
+                        In Cart: {cart.getProductQuantity(product.id)}
+                        <Button
+                          padding="0px"
+                          margin="0 5px 0 10px"
+                          onClick={() => cart.addItemToCart(product.id)}
+                        >
+                          <AddIcon fontSize="12px" />
+                        </Button>
+                        <Button
+                          padding="0px"
+                          onClick={() => cart.removeOneFromCart(product.id)}
+                        >
+                          <MinusIcon fontSize="12px" />
+                        </Button>
+                      </span>
+                    ) : (
+                      <AddToCartBtn
+                        productTitle={product.name}
+                        productID={product.id}
+                      />
+                    )}
                   </CardFooter>
                 </Card>
               ))
@@ -106,7 +131,29 @@ const Products = () => {
                     <Text margin="10px 0 0 0">${product.price}</Text>
                   </CardBody>
                   <CardFooter padding="0px 20px 20px 20px">
-                    <AddToCartBtn productTitle={product.name} productID={product.id}/>
+                    {cart.getProductQuantity(product.id) ? (
+                      <span style={{ margin: "0 auto" }}>
+                        In Cart: {cart.getProductQuantity(product.id)}
+                        <Button
+                          padding="0px"
+                          margin="0 5px 0 10px"
+                          onClick={() => cart.addItemToCart(product.id)}
+                        >
+                          <AddIcon fontSize="12px" />
+                        </Button>
+                        <Button
+                          padding="0px"
+                          onClick={() => cart.removeOneFromCart(product.id)}
+                        >
+                          <MinusIcon fontSize="12px" />
+                        </Button>
+                      </span>
+                    ) : (
+                      <AddToCartBtn
+                        productTitle={product.name}
+                        productID={product.id}
+                      />
+                    )}
                   </CardFooter>
                 </Card>
               ))}
