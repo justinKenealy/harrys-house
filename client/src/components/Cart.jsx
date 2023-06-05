@@ -74,7 +74,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
           {detailedCartItems.length > 0 && (
             <ModalFooter id="cartFooter">
               <Heading size="md">Total Cost: ${cart.getTotalCost().toFixed(2)}</Heading>
-              <Button>Checkout</Button>
+              <Button colorScheme='green'>Checkout</Button>
             </ModalFooter>
           )}
         </ModalContent>

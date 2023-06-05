@@ -22,45 +22,39 @@ const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
-      margin="3px 0"
-      height="130px"
+      margin="6px 0"
+      height="125px"
     >
       <Image
-        objectFit="contain"
-        maxW={{ base: "100%", sm: "100px" }}
-        maxWidth="100px"
+        objectFit="cover"
+        width="125px"
         src={img_url}
         alt={name}
       />
-
-      <Stack>
-        <CardBody padding="10px">
-          <Heading size="md">{name}</Heading>
           <CloseButton
             className="removeItemFromCartBtn"
             onClick={() => cart.removeItemFromCart(id)}
           />
-          <Text py="2">${(price * quantity).toFixed(2)}</Text>
+
+      <Stack>
+        <CardBody className="productCardBodyInCart" padding="10px">
+          <Heading size="md">{name}</Heading>
+          <Text margin="3px 0px 0px 0px" py="2">${(price * quantity).toFixed(2)}</Text>
           <span style={{ margin: "0 auto" }}>
             In Cart: {cart.getProductQuantity(id)}
             <Button
+              size="sm"
               padding="0px"
               margin="0 5px 0 10px"
               onClick={() => cart.addItemToCart(id)}
             >
-              <AddIcon fontSize="12px" />
+              <AddIcon fontSize="10px" />
             </Button>
-            <Button padding="0px" onClick={() => cart.removeOneFromCart(id)}>
-              <MinusIcon fontSize="12px" />
+            <Button size="sm" padding="0px" onClick={() => cart.removeOneFromCart(id)}>
+              <MinusIcon fontSize="10px" />
             </Button>
           </span>
         </CardBody>
-
-        <CardFooter>
-          <Button variant="solid" colorScheme="blue">
-            Hello
-          </Button>
-        </CardFooter>
       </Stack>
     </Card>
   );
