@@ -26,7 +26,7 @@ const NavBar = ({ user, setSelectedPage, selectedPage}) => {
             { user && <Link className={selectedPage === 'account' ? "selectedNavItem" :"navItem"} to="/account" onClick={() => setSelectedPage('account')}>Account</Link>}
             { user && <Link className="navItem"><LogoutButton>Logout</LogoutButton></Link>}
             { !user && <Link className={selectedPage === 'login' ? "selectedNavItem" :"navItem"} to="/login" onClick={() => setSelectedPage('login')}>Login</Link>}
-            <Link className={selectedPage === 'cart' ? "selectedNavItem" :"navItem"} to="/cart" onClick={() => setSelectedPage('cart')}>Cart</Link>
+            <Link className={selectedPage === 'cart' ? "selectedNavItem" :"navItem"} to="/cart" onClick={() => setSelectedPage('cart')}>Cart (0 items)</Link>
           </nav>
       </Box>
     </>

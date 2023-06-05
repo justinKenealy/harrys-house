@@ -7,7 +7,8 @@ import NavBar from './components/Navbar'
 import LandingPage from './pages/Landing'
 import AccountPage from './pages/Account'
 import CartPage from './pages/Cart'
-
+import Success from './pages/Success'
+import Cancel from './pages/Cancel'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage user={user}/>} />
         <Route path="/account" element={<AccountPage user={user}/>} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
     </Routes>
     </>
   )
