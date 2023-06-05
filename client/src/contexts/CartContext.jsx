@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { useProducts } from "./ProductsContext";
 
-const CartContext = createContext({
+export const CartContext = createContext({
   items: [],
   getProductQuantity: () => {},
   addItemToCart: () => {},
@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const getProductData = (id) => {
-    return PRODUCTSARRAY.find(product => product.id === id)
+    return products.find(product => product.id === id)
   }
 
   const getTotalCost = () => {
@@ -71,6 +71,7 @@ export const CartProvider = ({ children }) => {
         const productData = getProductData(cartItem.id);
         totalCost += (productData.price * cartItem.quantity)
     })
+    return totalCost
   }
 
   const contextValue = {
