@@ -1,10 +1,14 @@
 import { Box, Heading } from "@chakra-ui/react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 import LogoutButton from "./LogoutButton";
 import './Navbar.css'
 
 const NavBar = ({ user, setSelectedPage, selectedPage}) => {
-
+  const [ showCart, setShowCart ] = useState(false)
+  const handleCloseCart = () => setShowCart(false)
+  const handleShowCart = () => setShowCart(true)
 
   return (
     <>
@@ -26,7 +30,8 @@ const NavBar = ({ user, setSelectedPage, selectedPage}) => {
             { user && <Link className={selectedPage === 'account' ? "selectedNavItem" :"navItem"} to="/account" onClick={() => setSelectedPage('account')}>Account</Link>}
             { user && <Link className="navItem"><LogoutButton>Logout</LogoutButton></Link>}
             { !user && <Link className={selectedPage === 'login' ? "selectedNavItem" :"navItem"} to="/login" onClick={() => setSelectedPage('login')}>Login</Link>}
-            <Link className={selectedPage === 'cart' ? "selectedNavItem" :"navItem"} to="/cart" onClick={() => setSelectedPage('cart')}>Cart (0 items)</Link>
+            <Link className="navItem" onClick={() => handleShowCart()}>Cart (0 items)</Link>
+            <Cart showCart={showCart} handleCloseCart={handleCloseCart}/>
           </nav>
       </Box>
     </>

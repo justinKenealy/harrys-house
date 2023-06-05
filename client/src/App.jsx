@@ -6,7 +6,7 @@ import Store from './pages/Store'
 import NavBar from './components/Navbar'
 import LandingPage from './pages/Landing'
 import AccountPage from './pages/Account'
-import CartPage from './pages/Cart'
+import CartPage from './components/Cart'
 import Success from './pages/Success'
 import Cancel from './pages/Cancel'
 
