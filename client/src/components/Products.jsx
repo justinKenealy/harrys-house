@@ -24,7 +24,7 @@ const Products = () => {
   const [productFilter, setProductFilter] = useState(null);
 
   const { products } = useProducts()
-  console.log(products)
+
   // useEffect(() => {
   //   const getProducts = async () => {
   //     const res = await fetch("/api/products");
@@ -106,7 +106,7 @@ const Products = () => {
                     <Text margin="10px 0 0 0">${product.price}</Text>
                   </CardBody>
                   <CardFooter padding="0px 20px 20px 20px">
-                    <AddToCartBtn productTitle={product.name} />
+                    <AddToCartBtn productTitle={product.name} productID={product.id}/>
                   </CardFooter>
                 </Card>
               ))}
