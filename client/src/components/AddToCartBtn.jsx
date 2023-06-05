@@ -10,7 +10,7 @@ const AddToCartBtn = ({productTitle}) => {
           title: productTitle,
           description: "added to your cart.",
           status: "success",
-          duration: 4000,
+          duration: 3000,
           isClosable: true,
         })
       }

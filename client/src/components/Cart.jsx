@@ -5,9 +5,6 @@ import {
   CardHeader,
   Divider,
   Text,
-} from "@chakra-ui/react";
-
-import {
   Modal,
   ModalOverlay,
   ModalContent,
@@ -38,38 +35,10 @@ const Cart = ({ showCart, handleCloseCart }) => {
                 <Divider />
                 <Text>Item 3</Text>
                 <Divider />
-                <Text>Item 3</Text>
+                <Text>Item 4</Text>
                 <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
-                <Text>Item 3</Text>
-                <Divider />
+                <Text>Item 5</Text>
+                <Divider />  
               </CardBody>
             </Card>
           </ModalBody>
