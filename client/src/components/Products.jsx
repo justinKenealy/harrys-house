@@ -11,6 +11,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { useProducts } from "../contexts/ProductsContext";
 import AddToCartBtn from "./AddToCartBtn";
 import ProductFilterTab from "./ProductFilterTab";
 import ProductInfoPopup from "./ProductInfoPopup";
@@ -18,18 +19,20 @@ import "./Products.css";
 import ProductSearchBar from "./ProductSearchBar";
 
 const Products = () => {
-  const [products, setProducts] = useState(null);
+  // const [products, setProducts] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [productFilter, setProductFilter] = useState(null);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await fetch("/api/products");
-      const data = await res.json();
-      setProducts(data.user);
-    };
-    getProducts();
-  }, []);
+  const { products } = useProducts()
+
+  // useEffect(() => {
+  //   const getProducts = async () => {
+  //     const res = await fetch("/api/products");
+  //     const data = await res.json();
+  //     setProducts(data.user);
+  //   };
+  //   getProducts();
+  // }, []);
 
   const checkSearchQuery = (name, description) => {
     if (searchText.length < 3) {
