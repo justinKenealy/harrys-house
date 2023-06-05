@@ -91,13 +91,13 @@ const Products = () => {
                           margin="0 5px 0 10px"
                           onClick={() => cart.addItemToCart(product.id)}
                         >
-                          <AddIcon fontSize="12px" />
+                          <AddIcon fontSize="10px" />
                         </Button>
                         <Button
                           padding="0px"
                           onClick={() => cart.removeOneFromCart(product.id)}
                         >
-                          <MinusIcon fontSize="12px" />
+                          <MinusIcon fontSize="10px" />
                         </Button>
                       </span>
                     ) : (
@@ -139,13 +139,13 @@ const Products = () => {
                           margin="0 5px 0 10px"
                           onClick={() => cart.addItemToCart(product.id)}
                         >
-                          <AddIcon fontSize="12px" />
+                          <AddIcon fontSize="10px" />
                         </Button>
                         <Button
                           padding="0px"
                           onClick={() => cart.removeOneFromCart(product.id)}
                         >
-                          <MinusIcon fontSize="12px" />
+                          <MinusIcon fontSize="10px" />
                         </Button>
                       </span>
                     ) : (

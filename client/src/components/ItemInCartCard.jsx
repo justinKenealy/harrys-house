@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  CloseButton,
   Heading,
   Image,
   Stack,
@@ -11,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import "./ItemInCartCard.css";
 
 const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
   const cart = useContext(CartContext);
@@ -26,6 +28,7 @@ const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
       <Image
         objectFit="contain"
         maxW={{ base: "100%", sm: "100px" }}
+        maxWidth="100px"
         src={img_url}
         alt={name}
       />
@@ -33,10 +36,11 @@ const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
       <Stack>
         <CardBody padding="10px">
           <Heading size="md">{name}</Heading>
-
-          <Text py="2">
-            ${(price * quantity).toFixed(2)}
-          </Text>
+          <CloseButton
+            className="removeItemFromCartBtn"
+            onClick={() => cart.removeItemFromCart(id)}
+          />
+          <Text py="2">${(price * quantity).toFixed(2)}</Text>
           <span style={{ margin: "0 auto" }}>
             In Cart: {cart.getProductQuantity(id)}
             <Button
