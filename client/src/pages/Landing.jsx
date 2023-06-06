@@ -12,7 +12,7 @@ const LandingPage = () => {
         We offer a wide range of pet supplies and accessories for your best
         friends no matter their shape or size. Head to our store to check out our products!
       </Text>
-      <Link to="/store"><Button>Shop Now</Button></Link>
+      <Link to="/store"><Button colorScheme="blue">Shop Now</Button></Link>
     </div>
   );
 };

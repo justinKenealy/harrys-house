@@ -17,6 +17,7 @@ import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import ItemInCartCard from "./ItemInCartCard";
 import "./Cart.css"
+import { Link } from "react-router-dom";
 
 const Cart = ({ showCart, handleCloseCart }) => {
   const cart = useContext(CartContext);
@@ -29,7 +30,6 @@ const Cart = ({ showCart, handleCloseCart }) => {
 
   let detailedCartItems = [];
   for (let item in items) {
-    console.log(items[item]);
     detailedCartItems.push({
       ...getProductData(items[item].id),
       quantity: items[item].quantity,
@@ -63,6 +63,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
             {items.length === 0 && (
               <Center>
                 <Text>Your cart is empty.</Text>
+                <Link to="/store"><Button colorScheme="blue" onClick={handleCloseCart}>Shop Now</Button></Link>
                 <Image
                   height="200px"
                   src="http://localhost:3000/assets/logo/sadCorgi.png"

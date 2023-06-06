@@ -16,7 +16,9 @@ const ProductCard = ({product}) => {
                   <CardBody>
                     <Heading className="productTitle" size="md">
                       <ProductInfoPopup
+                        id={product.id}
                         name={product.name}
+                        price={product.price}
                         img={product.img_url}
                         description={product.description}
                       />
