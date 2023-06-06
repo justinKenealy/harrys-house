@@ -81,7 +81,7 @@ const NavBar = ({ user }) => {
               Login
             </Link>
           )}
-          <Link className="navItem cartIcon" onClick={() => handleShowCart()}>
+          <span className="cartIcon" onClick={() => handleShowCart()}>
             <i
               className={totalQuantityItems > 0 ? "fa badge" : "fa"}
               style={{ fontSize: "24px" }}
@@ -89,7 +89,7 @@ const NavBar = ({ user }) => {
             >
               &#xf07a;
             </i>
-          </Link>
+          </span>
           <Cart showCart={showCart} handleCloseCart={handleCloseCart} />
         </nav>
       </Box>

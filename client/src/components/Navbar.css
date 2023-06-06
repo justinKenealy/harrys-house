@@ -25,6 +25,13 @@
 
 .cartIcon {
     margin-left: 5px;
+    color: white;
+    margin: 0 15px;
+}
+
+.cartIcon:hover {
+    cursor: pointer;
+    color: #86BBD8;
 }
 
 .badge:after{
