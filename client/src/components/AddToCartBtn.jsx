@@ -23,6 +23,7 @@ const AddToCartBtn = ({productTitle, productID}) => {
 
   return (
     <Button
+      colorScheme="blue"
       margin="0 auto"
       onClick={() => 
         addToCartHandler()

@@ -1,27 +1,26 @@
 import { Box, Heading } from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import Cart from "./Cart";
 import LogoutButton from "./LogoutButton";
 import "./Navbar.css";
 
-
-
-// fix bug where the navbar defaults to home''
-
-
-const NavBar = ({ user, setSelectedPage, selectedPage }) => {
+const NavBar = ({ user }) => {
   const [showCart, setShowCart] = useState(false);
   const handleCloseCart = () => setShowCart(false);
   const handleShowCart = () => setShowCart(true);
+  const location = useLocation();
+  const [selectedPage, setSelectedPage] = useState(location.pathname);
   const cart = useContext(CartContext);
   const totalQuantityItems = cart.items.reduce(
-    (sum, item) => sum + item.quantity, 0
+    (sum, item) => sum + item.quantity,
+    0
   );
-  const location = useLocation()
-  setSelectedPage(location.pathname)
 
+  useEffect(() => {
+    setSelectedPage(location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
@@ -50,7 +49,9 @@ const NavBar = ({ user, setSelectedPage, selectedPage }) => {
             Home
           </Link>
           <Link
-            className={selectedPage === "/store" ? "selectedNavItem" : "navItem"}
+            className={
+              selectedPage === "/store" ? "selectedNavItem" : "navItem"
+            }
             to="/store"
           >
             Store

@@ -29,10 +29,7 @@ const ProductInfoPopup = (props) => {
               {description}
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onClose}>
-                Close
-              </Button>
-    <AddToCartBtn productTitle={name}/>
+              <AddToCartBtn productTitle={name}/>
             </ModalFooter>
           </ModalContent>
         </Modal>

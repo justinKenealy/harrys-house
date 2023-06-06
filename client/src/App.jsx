@@ -13,11 +13,10 @@ import Cancel from './pages/Cancel'
 function App() {
   const [count, setCount] = useState(0)
   const { user } = useAuth()
-  const [ selectedPage, setSelectedPage ] = useState('home')
 
   return (
     <>
-    <NavBar user={user} selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+    <NavBar user={user}/>
     <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/store" element={<Store />} />
