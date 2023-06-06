@@ -17,7 +17,6 @@ const SignUpForm = () => {
       setErrorMessage("Passwords must match");
       return;
     }
-
     try {
       await register(fields);
     } catch (err) {

@@ -15,24 +15,13 @@ const AddToWishlistBtn = ({user_id, product_id}) => {
             },
             body: JSON.stringify(requestBody)
           })
-            .then(response => response.json())
-            .then(data => {
-              console.log(data); 
-            })
+            .then(response => 
+                response
+            )
             .catch(error => {
               console.error(error);
             });
         };
-      
-        // const register = async (fields) => {
-        //     const res = await fetch("api/users", {
-        //         method: "POST",
-        //         headers: {
-        //           "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(fields),
-        //       });
-        //   };
 
 
   return (
