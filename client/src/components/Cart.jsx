@@ -9,10 +9,9 @@ import {
   ModalBody,
   ModalCloseButton,
   Image,
-  Center,
   Heading,
 } from "@chakra-ui/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import ItemInCartCard from "./ItemInCartCard";
@@ -26,7 +25,9 @@ const Cart = ({ showCart, handleCloseCart }) => {
   const { user } = useAuth()
   const { items } = cart;
   const { products } = useProducts();
-
+  console.log(cart.items)
+  console.log(products)
+  
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
   };
