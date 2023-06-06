@@ -10,6 +10,7 @@ const db = require("./db");
 const usersRouter = require("./controllers/users");
 const sessionRouter = require("./controllers/session");
 const productsRouter = require("./controllers/products");
+const wishlistRouter = require("./controllers/wishlist-products")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use("/api/users", usersRouter);
 app.use("/api/session", sessionRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/wishlist_products", wishlistRouter)
 
 app.post("/checkout", async (req, res) => {
   console.log(req.body)

@@ -1,17 +1,21 @@
 import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 import { Button, Card, CardBody, CardFooter, CardHeader, Heading, Text } from "@chakra-ui/react"
 import { useContext } from "react"
+import { useAuth } from "../contexts/AuthProvider"
 import { CartContext } from "../contexts/CartContext"
 import AddToCartBtn from "./AddToCartBtn"
+import AddToWishlistBtn from "./AddToWishListBtn"
 import ProductInfoPopup from "./ProductInfoPopup"
 
 const ProductCard = ({product}) => {
     const cart = useContext(CartContext);
+    const { user } = useAuth()
 
     return (
         <Card className="productCard">
                   <CardHeader padding="10px">
                     <img className="productImg" src={product.img_url} />
+                      {user && <AddToWishlistBtn user_id={user.id} product_id={product.id}/>}
                   </CardHeader>
                   <CardBody>
                     <Heading className="productTitle" size="md">

@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
-
+    console.log(fields)
     if (fields.password !== fields.passwordConfirm) {
       setErrorMessage("Passwords must match");
       return;

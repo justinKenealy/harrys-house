@@ -25,8 +25,8 @@ const Cart = ({ showCart, handleCloseCart }) => {
   const { user } = useAuth()
   const { items } = cart;
   const { products } = useProducts();
-  console.log(cart.items)
-  console.log(products)
+  // console.log(cart.items)
+  // console.log(products)
   
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
