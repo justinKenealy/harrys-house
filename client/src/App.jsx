@@ -9,13 +9,14 @@ import AccountPage from './pages/Account'
 import CartPage from './components/Cart'
 import Success from './pages/Success'
 import Cancel from './pages/Cancel'
+import "./App.css"
 
 function App() {
   const [count, setCount] = useState(0)
   const { user } = useAuth()
 
   return (
-    <>
+    <div id="content">
     <NavBar user={user}/>
     <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -26,7 +27,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
     </Routes>
-    </>
+    </div>
   )
 }
 

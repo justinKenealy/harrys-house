@@ -17,9 +17,9 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input margin="5px 0" type="text" name="username" placeholder="username" />
-      <Input margin="5px 0" type="password" name="password" placeholder="password" />
-      <Button margin="5px 0" type="submit" value="Login">Login</Button>
+      <Input backgroundColor="white" margin="5px 0" type="text" name="username" placeholder="username" />
+      <Input backgroundColor="white" margin="5px 0" type="password" name="password" placeholder="password" />
+      <Button colorScheme="blue" margin="5px 0" type="submit" value="Login">Login</Button>
     </form>
   );
 };

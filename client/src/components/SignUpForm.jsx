@@ -55,18 +55,21 @@ const SignUpForm = () => {
   return (
     <form id="newUserForm" onSubmit={handleRegisterSubmit}>
       <Input
+        backgroundColor="white"
         margin="5px 0"
         type="text"
         name="username"
         placeholder="username"
       />
       <Input
+        backgroundColor="white"
         margin="5px 0"
         type="text"
         name="email"
         placeholder="email address"
       />
       <Input
+        backgroundColor="white"
         margin="5px 0"
         type="password"
         name="password"
@@ -81,6 +84,7 @@ const SignUpForm = () => {
           </div>
         )}
       <Input
+        backgroundColor="white"
         margin="5px 0"
         type="password"
         name="passwordConfirm"
@@ -88,7 +92,7 @@ const SignUpForm = () => {
         onChange={() => setErrorMessage("")}
       />
       {errorMessage && <div>{errorMessage}</div>}
-      <Button margin="5px 0" type="submit" value="Sign Up">
+      <Button colorScheme="blue" margin="5px 0" type="submit" value="Sign Up">
         Sign Up
       </Button>
     </form>
