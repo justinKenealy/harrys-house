@@ -18,6 +18,7 @@ import { useProducts } from "../contexts/ProductsContext";
 import ItemInCartCard from "./ItemInCartCard";
 import "./Cart.css"
 import { Link } from "react-router-dom";
+import CheckoutButton from "./CheckoutButton";
 
 const Cart = ({ showCart, handleCloseCart }) => {
   const cart = useContext(CartContext);
@@ -75,7 +76,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
           {detailedCartItems.length > 0 && (
             <ModalFooter id="cartFooter">
               <Heading size="md">Total Cost: ${cart.getTotalCost().toFixed(2)}</Heading>
-              <Button colorScheme='green'>Checkout</Button>
+              <CheckoutButton items={items}/>
             </ModalFooter>
           )}
         </ModalContent>
