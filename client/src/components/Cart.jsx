@@ -62,15 +62,15 @@ const Cart = ({ showCart, handleCloseCart }) => {
                 />
               ))}
             {items.length === 0 && (
-              <Center>
+              <div style={{margin: '20px auto 50px auto', textAlign: 'center'}}>
                 <Text>Your cart is empty.</Text>
-                <Link to="/store"><Button colorScheme="blue" onClick={handleCloseCart}>Shop Now</Button></Link>
                 <Image
                   height="200px"
                   src="http://localhost:3000/assets/logo/sadCorgi.png"
-                  margin="0 0 20px 0"
+                  margin="10px auto 20px auto"
                 />
-              </Center>
+                <Link to="/store"><Button colorScheme="blue" onClick={handleCloseCart}>Shop Now</Button></Link>
+              </div>
             )}
           </ModalBody>
           {detailedCartItems.length > 0 && (
