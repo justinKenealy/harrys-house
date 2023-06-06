@@ -65,8 +65,6 @@ const CheckoutButton = () => {
         })
     });
 
-    console.log(itemsForStripe)
-
     const checkout = async () => {
         await fetch('http://localhost:3000/checkout', {
             method: 'POST',
@@ -77,9 +75,12 @@ const CheckoutButton = () => {
         }).then((response) => {
             return response.json();
         }).then((response) => {
+            console.log(response.url)
             if(response.url) {
                 window.location.assign(response.url);
             }
+        }).catch(err => {
+            console.error(err)
         })
     }
 

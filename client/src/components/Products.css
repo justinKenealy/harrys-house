@@ -3,7 +3,7 @@
     grid-template-columns: 235px 1fr;
     grid-template-rows: 60px 1fr;
     background-color: rgb(255, 255, 255);
-    margin: 0 auto;
+    margin: 0 auto 15px auto;
 }
 
 #productGrid {

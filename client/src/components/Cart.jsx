@@ -19,9 +19,11 @@ import ItemInCartCard from "./ItemInCartCard";
 import "./Cart.css"
 import { Link } from "react-router-dom";
 import CheckoutButton from "./CheckoutButton";
+import { useAuth } from "../contexts/AuthProvider";
 
 const Cart = ({ showCart, handleCloseCart }) => {
   const cart = useContext(CartContext);
+  const { user } = useAuth()
   const { items } = cart;
   const { products } = useProducts();
 
@@ -76,7 +78,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
           {detailedCartItems.length > 0 && (
             <ModalFooter id="cartFooter">
               <Heading size="md">Total Cost: ${cart.getTotalCost().toFixed(2)}</Heading>
-              <CheckoutButton items={items}/>
+              {user ? <CheckoutButton items={items}/> : <Link to="/login"><Button onClick={handleCloseCart}>Login to checkout</Button></Link>}
             </ModalFooter>
           )}
         </ModalContent>

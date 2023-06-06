@@ -24,9 +24,8 @@
 }
 
 .cartIcon {
-    margin-left: 5px;
     color: white;
-    margin: 0 15px;
+    margin: 0 25px 0 5px;
 }
 
 .cartIcon:hover {
