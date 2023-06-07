@@ -3,13 +3,6 @@ import ProductCard from "../ProductCard";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 
-const mockOnComplete = vi.fn();
-const mockOnDelete = vi.fn();
-
-// beforeEach(() => {
-//   vi.resetAllMocks();
-// });
-
 const mockProduct = {
   category: 1,
   created_at: "2023-06-04T04:40:38.311Z",
@@ -27,4 +20,18 @@ it("should create test id dataset with product id number", () => {
   const testIdCard = screen.getByTestId("product-1");
   expect(testIdCard).toBeInTheDocument();
 });
+
+it("should display task name", () => {
+  render(<ProductCard product={mockProduct}/>);
+  const taskName = screen.getByText("Red Dog Food");
+  expect(taskName).toBeInTheDocument();
+});
+
+it("should display task price", () => {
+  render(<ProductCard product={mockProduct}/>);
+  const taskPrice = screen.getByText("$19.99");
+  expect(taskPrice).toBeInTheDocument();
+});
+
+
 
