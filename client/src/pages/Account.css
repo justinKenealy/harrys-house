@@ -1,0 +1,7 @@
+#accountPage {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    column-gap: 25px;
+    width: 90%;
+    margin: 0 auto;
+}

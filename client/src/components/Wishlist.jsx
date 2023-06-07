@@ -1,16 +1,17 @@
+import { Heading } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useProducts } from "../contexts/ProductsContext";
 // import WishlistProvider, { useWishlist, WishlistContext } from "../contexts/WishlistProductsContext";
 import WishlistProductCard from "./WishlistProductCard";
-import "./WishlistProductCard.css"
+import "./WishlistProductCard.css";
 
 const Wishlist = ({ user }) => {
-    // const { wishlistProducts } = useContext(WishlistContext)
-    // const { wishlistProducts, setWishlistProducts } = useWishlist;
-    const [wishlistProducts, setWishlistProducts] = useState([]);
-    const { products } = useProducts();
-  
+  // const { wishlistProducts } = useContext(WishlistContext)
+  // const { wishlistProducts, setWishlistProducts } = useWishlist;
+  const [wishlistProducts, setWishlistProducts] = useState([]);
+  const { products } = useProducts();
+
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
   };
@@ -30,16 +31,23 @@ const Wishlist = ({ user }) => {
     getWishlistProducts();
   }, []);
 
-  console.log(wishlistProducts)
+  console.log(wishlistProducts);
 
   return (
     <>
-      <div>Wishlist for {user.username}</div>
-      <div id="wishlistProductGrid">
-        {wishlistProducts &&
-          wishlistProducts.map((product) => (
-            <WishlistProductCard key={product.id} product={product} wishlistProducts={wishlistProducts} setWishlistProducts={setWishlistProducts}/>
-          ))}
+      <div id="wishlistSection">
+        <Heading padding="15px 15px 5px 15px" size="md">Wishlist</Heading>
+        <div id="wishlistProductGrid">
+          {wishlistProducts &&
+            wishlistProducts.map((product) => (
+              <WishlistProductCard
+                key={product.id}
+                product={product}
+                wishlistProducts={wishlistProducts}
+                setWishlistProducts={setWishlistProducts}
+              />
+            ))}
+        </div>
       </div>
     </>
   );
