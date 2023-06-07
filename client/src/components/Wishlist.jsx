@@ -31,8 +31,6 @@ const Wishlist = ({ user }) => {
     getWishlistProducts();
   }, []);
 
-  console.log(wishlistProducts);
-
   return (
     <>
       <div id="wishlistSection">

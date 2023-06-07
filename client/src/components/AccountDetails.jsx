@@ -12,6 +12,7 @@ import {
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useProducts } from "../contexts/ProductsContext";
+import ChangePasswordPopup from "./ChangePasswordPopup";
 // import WishlistProvider, { useWishlist, WishlistContext } from "../contexts/WishlistProductsContext";
 import WishlistProductCard from "./WishlistProductCard";
 import "./WishlistProductCard.css";
@@ -45,7 +46,7 @@ const AccountDetails = ({ user }) => {
                     Password Management
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                  <Button>Change Password</Button>
+                  <ChangePasswordPopup/>
                 </Text>
               </Box>
             </Stack>
