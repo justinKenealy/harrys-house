@@ -10,9 +10,9 @@ import ProductInfoPopup from "./ProductInfoPopup"
 const ProductCard = ({product}) => {
     const cart = useContext(CartContext);
     const { user } = useAuth()
-
+    console.log(product)
     return (
-        <Card className="productCard">
+        <Card data-testid={`product-${product.id}`} className="productCard">
                   <CardHeader padding="10px">
                     <img className="productImg" src={product.img_url} />
                       {user && <AddToWishlistBtn user_id={user.id} product_id={product.id}/>}
