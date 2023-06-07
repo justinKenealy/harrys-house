@@ -4,6 +4,13 @@ Welcome to Harry's House E-commerce Application! This is a full-stack applicatio
 
 *Harry's House* stocks a wide range of products for dogs, cats, birds, fish, and more. Users can browse the products in the store, using search queries and filters to locate their desired products. Users can create an account to save products in a wishlist, or go straight to adding them to their cart before checking out with the inbuilt Stripe API.  
 
+
+## Screenshots
+<div>
+  <img src="./screenshots/homepage.png" alt="homepage" width="49%" style="display: inline-block; margin-right: 5px;">
+  <img src="./screenshots/store.png" alt="store" width="49%" style="display: inline-block;">
+</div>
+
 ## Features
 
 - User authentication: Users can sign up, log in, and log out securely.
