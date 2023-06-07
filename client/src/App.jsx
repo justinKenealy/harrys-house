@@ -14,12 +14,12 @@ import { useProducts } from "./contexts/ProductsContext";
 
 function App() {
   const { user } = useAuth();
-  const [wishlistProducts, setWishlistProducts] = useState([]);
+  // const [wishlistProducts, setWishlistProducts] = useState([]);
   const { products } = useProducts();
   
-  const getProductData = (id) => {
-    return products.find((product) => product.id === id);
-  };
+  // const getProductData = (id) => {
+  //   return products.find((product) => product.id === id);
+  // };
   
 //   if (user){
 //   useEffect(() => {

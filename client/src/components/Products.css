@@ -32,3 +32,25 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* .fa-regular:hover {
+    color: red;
+    cursor: pointer;
+} */
+
+.addToWishlistBtn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: white;
+    padding: 6px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.addToWishlistBtn:hover {
+    border: 2px solid red;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+}

@@ -22,10 +22,12 @@ const AddToWishlistBtn = ({ user_id, product_id }) => {
   };
 
   return (
-        <i
+    <div className="addToWishlistBtn">
+        <i 
           onClick={() => AddToWishlist(user_id, product_id)}
           className="fa-regular fa-heart fa-xl"
         ></i>
+        </div>
   );
 };
 
