@@ -20,8 +20,8 @@ const AccountDetails = ({ user }) => {
   return (
     <>
       <div id="accountDetailsSection">
-        <Heading padding="15px" size="md">Account Details</Heading>
-        <Card>
+        <Heading padding="15px 20px" size="md">Account Details</Heading>
+        <Card marginLeft="5px">
           <CardBody>
             <Stack divider={<StackDivider />} spacing="4">
               <Box>

@@ -32,7 +32,7 @@ const WishlistProductCard = ({
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
-      margin="10px 5px"
+      margin="10px 5px 10px 0"
     >
       <Image
         objectFit="cover"
