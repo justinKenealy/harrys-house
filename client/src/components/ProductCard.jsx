@@ -26,10 +26,10 @@ const ProductCard = ({ product, saved, wishlistProductIDs, setWishlistProductIDs
       <CardHeader padding="10px">
         <img className="productImg" src={product.img_url} />
         {user && !saved ? (
-          <AddToWishlistBtn user_id={user.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
+          <AddToWishlistBtn user_id={user?.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
           setWishlistProductIDs={setWishlistProductIDs}/>
         ) : (
-          <DeleteFromStoreWishListBtn user_id={user.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
+          <DeleteFromStoreWishListBtn user_id={user?.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
           setWishlistProductIDs={setWishlistProductIDs}/>
         )}
       </CardHeader>

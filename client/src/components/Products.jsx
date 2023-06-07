@@ -55,7 +55,10 @@ const Products = () => {
       
       console.log(wishlistProductIDs)
     };
-    getWishlistProducts();
+    if (user && products){
+    getWishlistProducts();} else {
+      console.log('not ready yet')
+    }
   }, [user, products]);
 
   return (
