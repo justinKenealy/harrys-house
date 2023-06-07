@@ -17,7 +17,12 @@ import DeleteFromStoreWishListBtn from "./DeleteFromStoreWishlistBtn";
 import DeleteFromWishListBtn from "./DeleteFromWishListBtn";
 import ProductInfoPopup from "./ProductInfoPopup";
 
-const ProductCard = ({ product, saved, wishlistProductIDs, setWishlistProductIDs}) => {
+const ProductCard = ({
+  product,
+  saved,
+  wishlistProductIDs,
+  setWishlistProductIDs,
+}) => {
   const cart = useContext(CartContext);
   const { user } = useAuth();
   // console.log(saved);
@@ -25,12 +30,21 @@ const ProductCard = ({ product, saved, wishlistProductIDs, setWishlistProductIDs
     <Card data-testid={`product-${product.id}`} className="productCard">
       <CardHeader padding="10px">
         <img className="productImg" src={product.img_url} />
-        {user && !saved ? (
-          <AddToWishlistBtn user_id={user?.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
-          setWishlistProductIDs={setWishlistProductIDs}/>
-        ) : (
-          <DeleteFromStoreWishListBtn user_id={user?.id} product_id={product.id} wishlistProductIDs={wishlistProductIDs}
-          setWishlistProductIDs={setWishlistProductIDs}/>
+        {user && !saved && (
+          <AddToWishlistBtn
+            user_id={user?.id}
+            product_id={product.id}
+            wishlistProductIDs={wishlistProductIDs}
+            setWishlistProductIDs={setWishlistProductIDs}
+          />
+        )}
+        {user && saved && (
+          <DeleteFromStoreWishListBtn
+            user_id={user?.id}
+            product_id={product.id}
+            wishlistProductIDs={wishlistProductIDs}
+            setWishlistProductIDs={setWishlistProductIDs}
+          />
         )}
       </CardHeader>
       <CardBody>

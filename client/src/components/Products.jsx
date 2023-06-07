@@ -49,15 +49,11 @@ const Products = () => {
     const getWishlistProducts = async () => {
       const res = await fetch(`/api/wishlist_products/${user.id}`);
       const IDs = await res.json();
-      console.log(IDs)
-      const justIDs = IDs.map(item => item.product_id);
+      const justIDs = IDs.map((item) => item.product_id);
       setWishlistProductIDs(justIDs);
-      
-      console.log(wishlistProductIDs)
     };
-    if (user && products){
-    getWishlistProducts();} else {
-      console.log('not ready yet')
+    if (user && products) {
+      getWishlistProducts();
     }
   }, [user, products]);
 
@@ -78,7 +74,13 @@ const Products = () => {
                   checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)} wishlistProductIDs={wishlistProductIDs} setWishlistProductIDs={setWishlistProductIDs}/>
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  saved={wishlistProductIDs.includes(product.id)}
+                  wishlistProductIDs={wishlistProductIDs}
+                  setWishlistProductIDs={setWishlistProductIDs}
+                />
               ))
           : products &&
             products
@@ -86,9 +88,28 @@ const Products = () => {
                 checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)} wishlistProductIDs={wishlistProductIDs} setWishlistProductIDs={setWishlistProductIDs}/>
-        
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  saved={wishlistProductIDs.includes(product.id)}
+                  wishlistProductIDs={wishlistProductIDs}
+                  setWishlistProductIDs={setWishlistProductIDs}
+                />
               ))}
+
+        {productFilter &&
+          products &&
+          products.filter(
+            (product) =>
+              product.category === productFilter &&
+              checkSearchQuery(product.name, product.description)
+          ).length === 0 && <Text>No products found.</Text>}
+
+        {!productFilter &&
+          products &&
+          products.filter((product) =>
+            checkSearchQuery(product.name, product.description)
+          ).length === 0 && <Text>No products found.</Text>}
       </SimpleGrid>
     </div>
   );
