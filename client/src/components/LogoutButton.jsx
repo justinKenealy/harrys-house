@@ -6,7 +6,7 @@ const LogoutButton = () => {
     const { logout } = useAuth();
     const handleLogout = async (e) => {
         logout()
-        return <Navigate to="/store" replace/>
+        return <Navigate to="/" replace/>
     };
 
   return (

@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import FontAwesomeIcon from "react";
 
 const AddToWishlistBtn = ({
@@ -25,6 +25,8 @@ const AddToWishlistBtn = ({
           console.error(error);
         });
     };
+    
+    const toast = useToast();
 
   const handleAddWishlistProduct = () => {
     AddProductToWishList();
@@ -33,6 +35,12 @@ const AddToWishlistBtn = ({
     const newWishListProducts = [...wishlistProductIDs, product_id]
     console.log(newWishListProducts)
     setWishlistProductIDs(newWishListProducts);
+    toast({
+      description: "Item added to your wishlist.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    })
   };
 
   return (

@@ -34,12 +34,16 @@ const WishlistProductCard = ({
       variant="outline"
       margin="10px 5px 10px 0"
     >
+      <div className="wishlistProductImageDiv">
       <Image
         objectFit="cover"
-        maxW={{ base: "100%", sm: "200px" }}
+        width="100%"
+        height="100%"
+        // {{ base: "100%", sm: "200px" }}
         className="wishlistProductImg"
         src={product.img_url}
       />
+      </div>
       
         <DeleteFromWishListBtn
           user_id={user.id}

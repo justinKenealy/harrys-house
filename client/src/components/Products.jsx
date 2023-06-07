@@ -56,7 +56,7 @@ const Products = () => {
       console.log(wishlistProductIDs)
     };
     getWishlistProducts();
-  }, []);
+  }, [user, products]);
 
   return (
     <div id="storePageBody">

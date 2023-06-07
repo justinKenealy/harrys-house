@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 
 const DeleteFromStoreWishListBtn = ({
   user_id,
@@ -6,6 +6,8 @@ const DeleteFromStoreWishListBtn = ({
   wishlistProductIDs,
   setWishlistProductIDs,
 }) => {
+  const toast = useToast()
+
   const DeleteFromWishList = () => {
     fetch(`api/wishlist_products/${user_id}/${product_id}`, {
       method: "DELETE",
@@ -26,6 +28,12 @@ const DeleteFromStoreWishListBtn = ({
         );
         setWishlistProductIDs(newWishListProducts);
         console.log(wishlistProductIDs)
+        toast({
+          description: "Item removed from your wishlist.",
+          status: "warning",
+          duration: 3000,
+          isClosable: true,
+        })
   };
 
   return (
