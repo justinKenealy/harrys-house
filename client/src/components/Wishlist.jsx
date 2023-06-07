@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useProducts } from "../contexts/ProductsContext";
+// import WishlistProvider, { useWishlist, WishlistContext } from "../contexts/WishlistProductsContext";
 import WishlistProductCard from "./WishlistProductCard";
 import "./WishlistProductCard.css"
 
 const Wishlist = ({ user }) => {
-  const [wishlistProducts, setWishlistProducts] = useState([]);
-  const { products } = useProducts();
+    // const { wishlistProducts } = useContext(WishlistContext)
+    // const { wishlistProducts, setWishlistProducts } = useWishlist;
+    const [wishlistProducts, setWishlistProducts] = useState([]);
+    const { products } = useProducts();
   
   const getProductData = (id) => {
     return products.find((product) => product.id === id);

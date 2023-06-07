@@ -22,13 +22,7 @@ const DeleteFromWishListBtn = ({user_id, product_id, wishlistProducts, setWishli
   };
 
   return (
-    <Button
-      colorScheme="blue"
-      margin="0 auto"
-      onClick={() => handleDeleteWishlistProduct()}
-    >
-      Remove
-    </Button>
+    <i className="fa-solid fa-heart fa-xl" style={{color: "red"}} onClick={() => handleDeleteWishlistProduct()}></i>
   );
 };
 

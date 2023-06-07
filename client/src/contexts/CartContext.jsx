@@ -19,8 +19,6 @@ export const CartProvider = ({ children }) => {
   
   const { products } = useProducts()
 
-
-
   const getProductQuantity = (id) => {
     const quantity = cartProducts.find(
       (product) => product.id === id
