@@ -45,20 +45,18 @@ const Products = () => {
     return false;
   };
 
-  // useEffect(() => {
-  //   const getWishlistProducts = async () => {
-  //     const res = await fetch(`/api/wishlist_products/${user.id}`);
-  //     const IDs = await res.json();
-  //     console.log(IDs)
-  //     const justIDs = IDs.map(item => item.product_id);
-  //     setWishlistProductIDs(justIDs);
+  useEffect(() => {
+    const getWishlistProducts = async () => {
+      const res = await fetch(`/api/wishlist_products/${user.id}`);
+      const IDs = await res.json();
+      console.log(IDs)
+      const justIDs = IDs.map(item => item.product_id);
+      setWishlistProductIDs(justIDs);
       
-  //     console.log(wishlistProductIDs)
-  //   };
-  //   getWishlistProducts();
-  // }, []);
-
-  // console.log(wishlistProductIDs.includes(1))
+      console.log(wishlistProductIDs)
+    };
+    getWishlistProducts();
+  }, []);
 
   return (
     <div id="storePageBody">
@@ -77,7 +75,7 @@ const Products = () => {
                   checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)}/>
+                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)} wishlistProductIDs={wishlistProductIDs} setWishlistProductIDs={setWishlistProductIDs}/>
               ))
           : products &&
             products
@@ -85,7 +83,7 @@ const Products = () => {
                 checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)}/>
+                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)} wishlistProductIDs={wishlistProductIDs} setWishlistProductIDs={setWishlistProductIDs}/>
         
               ))}
       </SimpleGrid>

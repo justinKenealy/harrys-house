@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useProducts } from "../contexts/ProductsContext";
@@ -9,8 +9,8 @@ import "./WishlistProductCard.css";
 const Wishlist = ({ user }) => {
   // const { wishlistProducts } = useContext(WishlistContext)
   // const { wishlistProducts, setWishlistProducts } = useWishlist;
-  const [wishlistProducts, setWishlistProducts] = useState([]);
   const { products } = useProducts();
+  const [wishlistProducts, setWishlistProducts] = useState([]);
 
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
@@ -38,15 +38,15 @@ const Wishlist = ({ user }) => {
       <div id="wishlistSection">
         <Heading padding="15px 15px 5px 15px" size="md">Wishlist</Heading>
         <div id="wishlistProductGrid">
-          {wishlistProducts &&
+          {wishlistProducts.length ?
             wishlistProducts.map((product) => (
               <WishlistProductCard
                 key={product.id}
                 product={product}
                 wishlistProducts={wishlistProducts}
                 setWishlistProducts={setWishlistProducts}
-              />
-            ))}
+              />)) : <Text padding="10px">There are no products in your wishlist!</Text>
+            }
         </div>
       </div>
     </>
