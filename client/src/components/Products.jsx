@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
+import { useAuth } from "../contexts/AuthProvider";
 import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import AddToCartBtn from "./AddToCartBtn";
@@ -25,8 +26,11 @@ import ProductSearchBar from "./ProductSearchBar";
 const Products = () => {
   const [searchText, setSearchText] = useState("");
   const [productFilter, setProductFilter] = useState(null);
+  const [wishlistProductIDs, setWishlistProductIDs] = useState([]);
   const cart = useContext(CartContext);
   const { products } = useProducts();
+  const { user } = useAuth();
+  // console.log(user)
 
   const checkSearchQuery = (name, description) => {
     if (searchText.length < 3) {
@@ -40,6 +44,21 @@ const Products = () => {
     }
     return false;
   };
+
+  // useEffect(() => {
+  //   const getWishlistProducts = async () => {
+  //     const res = await fetch(`/api/wishlist_products/${user.id}`);
+  //     const IDs = await res.json();
+  //     console.log(IDs)
+  //     const justIDs = IDs.map(item => item.product_id);
+  //     setWishlistProductIDs(justIDs);
+      
+  //     console.log(wishlistProductIDs)
+  //   };
+  //   getWishlistProducts();
+  // }, []);
+
+  // console.log(wishlistProductIDs.includes(1))
 
   return (
     <div id="storePageBody">
@@ -58,7 +77,7 @@ const Products = () => {
                   checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product}/>
+                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)}/>
               ))
           : products &&
             products
@@ -66,7 +85,7 @@ const Products = () => {
                 checkSearchQuery(product.name, product.description)
               )
               .map((product) => (
-                <ProductCard key={product.id} product={product}/>
+                <ProductCard key={product.id} product={product} saved={wishlistProductIDs.includes(product.id)}/>
         
               ))}
       </SimpleGrid>

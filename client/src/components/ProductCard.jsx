@@ -7,10 +7,10 @@ import AddToCartBtn from "./AddToCartBtn"
 import AddToWishlistBtn from "./AddToWishListBtn"
 import ProductInfoPopup from "./ProductInfoPopup"
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, saved}) => {
     const cart = useContext(CartContext);
     const { user } = useAuth()
-    console.log(product)
+    // console.log(saved)
     return (
         <Card data-testid={`product-${product.id}`} className="productCard">
                   <CardHeader padding="10px">

@@ -54,3 +54,21 @@
     cursor: pointer;
     background-color: rgb(255, 0, 0);
 }
+
+.deleteFromWishlistBtn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgb(255, 0, 0);
+    padding: 6px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}
+
+.deleteFromWishlistBtn:hover {
+    border: 2px solid black;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}

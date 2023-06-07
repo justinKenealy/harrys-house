@@ -1,7 +1,11 @@
 import { Button } from "@chakra-ui/react";
 
-const DeleteFromWishListBtn = ({user_id, product_id, wishlistProducts, setWishlistProducts}) => {
-
+const DeleteFromWishListBtn = ({
+  user_id,
+  product_id,
+  wishlistProducts,
+  setWishlistProducts,
+}) => {
   const DeleteFromWishList = () => {
     fetch(`api/wishlist_products/${user_id}/${product_id}`, {
       method: "DELETE",
@@ -17,12 +21,19 @@ const DeleteFromWishListBtn = ({user_id, product_id, wishlistProducts, setWishli
 
   const handleDeleteWishlistProduct = () => {
     DeleteFromWishList(user_id, product_id);
-    const newWishListProducts = wishlistProducts.filter(item => item.id !== product_id);
-    setWishlistProducts(newWishListProducts)
+    const newWishListProducts = wishlistProducts.filter(
+      (item) => item.id !== product_id
+    );
+    setWishlistProducts(newWishListProducts);
   };
 
   return (
-    <i className="fa-solid fa-heart fa-xl" style={{color: "red"}} onClick={() => handleDeleteWishlistProduct()}></i>
+    <div className="deleteFromWishlistBtn">
+      <i
+        className="fa-regular fa-heart fa-xl"
+        onClick={() => handleDeleteWishlistProduct()}
+      ></i>
+    </div>
   );
 };
 
