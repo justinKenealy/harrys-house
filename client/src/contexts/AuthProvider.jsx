@@ -61,8 +61,18 @@ export const AuthProvider = ({ children }) => {
     navigate('/')
   };
 
+  const updatePassword = async (user_id, fields) => {
+    const res = await fetch(`api/users/${user_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fields),
+      });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, login, logout, register, updatePassword }}>
       {children}
     </AuthContext.Provider>
   );

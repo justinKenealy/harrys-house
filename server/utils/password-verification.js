@@ -11,6 +11,8 @@ const generateHash = (password) => {
     if (typeof password !== 'string' || !password) {
       throw new Error()
     }
+    console.log(password)
+    console.log(password_hash)
     return bcrypt.compareSync(password, password_hash)
   }
 

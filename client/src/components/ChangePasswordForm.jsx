@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthProvider";
 import ValidPasswordPopup from "./ValidPasswordPopup";
 
 const ChangePasswordForm = () => {
-  const { login } = useAuth();
+  const { user, updatePassword } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(false)
@@ -13,11 +13,7 @@ const ChangePasswordForm = () => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
     console.log(fields)
-    // try {
-    //   await login(fields);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    updatePassword(user.id, fields)
   };
 
   const handlePasswordChange = (event) => {
@@ -53,14 +49,14 @@ const ChangePasswordForm = () => {
         backgroundColor="white"
         margin="5px 0"
         type="password"
-        name="currentPassword"
+        name="passwordOld"
         placeholder="current password"
       />
       <Input
         backgroundColor="white"
         margin="5px 0"
         type="password"
-        name="password"
+        name="passwordNew"
         placeholder="new password"
         value={password}
         onChange={handlePasswordChange}
