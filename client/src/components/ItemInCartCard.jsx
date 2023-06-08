@@ -16,6 +16,7 @@ import "./ItemInCartCard.css";
 
 const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
   const cart = useContext(CartContext);
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
 
   return (
     <Card
@@ -28,7 +29,7 @@ const ItemInCartCard = ({ id, name, price, quantity, img_url }) => {
       <Image
         objectFit="cover"
         width="125px"
-        src={img_url}
+        src={UrlBasepath + img_url}
         alt={name}
       />
           <CloseButton

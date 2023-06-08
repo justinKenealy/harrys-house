@@ -25,8 +25,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
   const { user } = useAuth()
   const { items } = cart;
   const { products } = useProducts();
-  // console.log(cart.items)
-  // console.log(products)
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
   
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
@@ -69,7 +68,7 @@ const Cart = ({ showCart, handleCloseCart }) => {
                 <Text>Your cart is empty.</Text>
                 <Image
                   height="200px"
-                  src="http://localhost:3000/assets/logo/sadCorgi.png"
+                  src={`${UrlBasepath}/assets/logo/sadCorgi.png`}
                   margin="10px auto 20px auto"
                 />
                 <Link to="/store"><Button colorScheme="blue" onClick={handleCloseCart}>Shop Now</Button></Link>

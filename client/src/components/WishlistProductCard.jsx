@@ -25,6 +25,7 @@ const WishlistProductCard = ({
 }) => {
   const cart = useContext(CartContext);
   const { user } = useAuth();
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
 
   return (
     <Card
@@ -41,7 +42,7 @@ const WishlistProductCard = ({
         height="100%"
         // {{ base: "100%", sm: "200px" }}
         className="wishlistProductImg"
-        src={product.img_url}
+        src={UrlBasepath + product.img_url}
       />
       </div>
       

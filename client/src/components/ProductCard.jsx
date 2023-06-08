@@ -25,11 +25,12 @@ const ProductCard = ({
 }) => {
   const cart = useContext(CartContext);
   const { user } = useAuth();
-  // console.log(saved);
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
+
   return (
     <Card data-testid={`product-${product.id}`} className="productCard">
       <CardHeader padding="10px">
-        <img className="productImg" src={product.img_url} />
+        <img className="productImg" src={UrlBasepath + product.img_url} />
         {user && !saved && (
           <AddToWishlistBtn
             user_id={user?.id}
@@ -53,7 +54,7 @@ const ProductCard = ({
             id={product.id}
             name={product.name}
             price={product.price}
-            img={product.img_url}
+            img={UrlBasepath + product.img_url}
             description={product.description}
           />
         </Heading>
