@@ -7,41 +7,41 @@ const router = express.Router();
 
 // register user
 router.post("/", async (req, res, next) => {
-  const { username, email, password1, password2 } = Object.entries(
+  const { username, email, password, passwordConfirm } = Object.entries(
     req.body
   ).reduce((obj, [key, value]) => {
     obj[key] = value.trim();
     return obj;
   }, {});
   try {
-    if (!username || !email || !password1 || !password2) {
+    if (!username || !email || !password || !passwordConfirm) {
       const customError = new Error("All fields must be complete.");
       customError.status = 400;
       return next(customError);
     }
-    if (password1 !== password2) {
+    if (password !== passwordConfirm) {
       const customError = new Error("The passwords do not match.");
       customError.status = 400;
       return next(customError);
     }
-    if (password1.length < 8) {
+    if (password.length < 8) {
       const customError = new Error("Password is too short.");
       customError.status = 400;
       return next(customError);
     }
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     if (
-      !/\d/.test(password1) ||
-      !/[A-Z]/.test(password1) ||
-      !/[a-z]/.test(password1) ||
-      !specialChars.test(password1)
+      !/\d/.test(password) ||
+      !/[A-Z]/.test(password) ||
+      !/[a-z]/.test(password) ||
+      !specialChars.test(password)
     ) {
       const customError = new Error("Password is too weak.");
       customError.status = 400;
       return next(customError);
     }
 
-    const passwordHash = generateHash(password1);
+    const passwordHash = generateHash(password);
 
     const data = await registerUser(username, email, passwordHash);
 
@@ -70,7 +70,7 @@ router.put('/:id', async (req, res, next) => {
       console.log(passwordNew)
       const user = await getUserById(id)
       console.log(user[0])
-      if (comparePassword(passwordOld, user[0].password_hash)) {
+      if (comparePassword(passwordOld, user.password_hash)) {
         if (passwordNew.length < 8) {
           const customError = new Error('The password is too short. It must be 8 characters long.')
           customError.status = 400

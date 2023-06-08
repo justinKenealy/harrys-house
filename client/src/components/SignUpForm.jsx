@@ -19,7 +19,9 @@ const SignUpForm = () => {
     }
     try {
       await register(fields);
+      
     } catch (err) {
+      setErrorMessage("Username or email already taken. Try again.")
       console.log(err);
     }
   };
