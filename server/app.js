@@ -13,6 +13,8 @@ const usersRouter = require("./controllers/users");
 const sessionRouter = require("./controllers/session");
 const productsRouter = require("./controllers/products");
 const wishlistRouter = require("./controllers/wishlist-products");
+const orderRouter = require("./controllers/orders")
+const orderItemsRouter = require("./controllers/order-items")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,6 +39,8 @@ app.use("/api/users", usersRouter);
 app.use("/api/session", sessionRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/wishlist_products", wishlistRouter);
+app.use("/api/orders", orderRouter);
+app.use("/api/order-items", orderItemsRouter);
 
 app.post("/checkout", async (req, res) => {
   const items = req.body.items;
