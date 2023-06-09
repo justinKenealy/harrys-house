@@ -64,10 +64,11 @@ const SignUpForm = () => {
     setUserTaken("")
     const newPassword = event.target.value;
     setPassword2(newPassword);
-    if (password !== password2) {
+    if (password !== newPassword) {
       setErrorMessage("Passwords must match");
       return;
-    }
+    } 
+    setErrorMessage("")
   };
 
   const handleUsernameChange = (event) => {
