@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (fields) => {
-    console.log(JSON.stringify(fields))
     const res = await fetch("api/users", {
         method: "POST",
         headers: {
@@ -40,7 +39,6 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify(fields),
       });
       const data = await res.json();
-      console.log(data)
       if (res.status !== 200) {
       throw {
         status: res.status,

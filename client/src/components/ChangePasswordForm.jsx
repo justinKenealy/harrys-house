@@ -12,7 +12,6 @@ const ChangePasswordForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
-    console.log(fields)
     updatePassword(user.id, fields)
   };
 

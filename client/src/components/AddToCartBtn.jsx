@@ -3,7 +3,6 @@ import { CartContext } from "../contexts/CartContext"
 import { useContext } from "react";
 
 const AddToCartBtn = ({productTitle, productID}) => {
-  // console.log(productID)
   const toast = useToast();
   const cart = useContext(CartContext)
   const productQuantity = cart.getProductQuantity(productID)
@@ -18,8 +17,6 @@ const AddToCartBtn = ({productTitle, productID}) => {
     })
     cart.addItemToCart(productID)
   }
-
-  // console.log(cart.items)
 
   return (
     <Button

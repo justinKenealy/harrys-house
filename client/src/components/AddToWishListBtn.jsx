@@ -30,10 +30,7 @@ const AddToWishlistBtn = ({
 
   const handleAddWishlistProduct = () => {
     AddProductToWishList();
-    console.log(wishlistProductIDs);
-    console.log(product_id)
     const newWishListProducts = [...wishlistProductIDs, product_id]
-    console.log(newWishListProducts)
     setWishlistProductIDs(newWishListProducts);
     toast({
       description: "Item added to your wishlist.",

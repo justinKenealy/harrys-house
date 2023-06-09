@@ -27,10 +27,8 @@ const Products = () => {
   const [searchText, setSearchText] = useState("");
   const [productFilter, setProductFilter] = useState(null);
   const [wishlistProductIDs, setWishlistProductIDs] = useState([]);
-  const cart = useContext(CartContext);
   const { products } = useProducts();
   const { user } = useAuth();
-  // console.log(user)
 
   const checkSearchQuery = (name, description) => {
     if (searchText.length < 3) {

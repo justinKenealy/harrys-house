@@ -13,42 +13,40 @@ const SignUpForm = () => {
   const [password2, setPassword2] = useState("");
   const [isValid, setIsValid] = useState(false);
   const toast = useToast();
-  
+
   const handleRegisterSuccessful = () => {
     toast({
       description: "Account created successfully!",
       status: "success",
       duration: 3000,
       isClosable: true,
-    })
-    setUsername('')
-    setEmail('')
-    setPassword('')
-    setPassword2('')
-  }
+    });
+    setUsername("");
+    setEmail("");
+    setPassword("");
+    setPassword2("");
+  };
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
-    console.log(fields)
-    
+
     try {
       await register(fields);
-      console.log('account created')
-      handleRegisterSuccessful()
-      return
+      handleRegisterSuccessful();
+      return;
     } catch (err) {
-      setUserTaken("Username or email already taken. Try again.")
-      setUsername('')
-      setEmail('')
-      setPassword('')
-      setPassword2('')
+      setUserTaken("Username or email already taken. Try again.");
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setPassword2("");
       console.log(err);
     }
   };
 
   const handlePasswordChange = (event) => {
-    setUserTaken("")
+    setUserTaken("");
     setErrorMessage("");
     const newPassword = event.target.value;
     setPassword(newPassword);
@@ -61,24 +59,24 @@ const SignUpForm = () => {
   };
 
   const handlePassword2Change = (event) => {
-    setUserTaken("")
+    setUserTaken("");
     const newPassword = event.target.value;
     setPassword2(newPassword);
     if (password !== newPassword) {
       setErrorMessage("Passwords must match");
       return;
-    } 
-    setErrorMessage("")
+    }
+    setErrorMessage("");
   };
 
   const handleUsernameChange = (event) => {
-    setUserTaken("")
+    setUserTaken("");
     const newUsername = event.target.value;
     setUsername(newUsername);
   };
 
   const handleEmailChange = (event) => {
-    setUserTaken("")
+    setUserTaken("");
     const newEmail = event.target.value;
     setEmail(newEmail);
   };
@@ -128,12 +126,12 @@ const SignUpForm = () => {
         value={password}
         onChange={handlePasswordChange}
       />
-        {password && (
-          <div style={{ color: isValid ? "green" : "red" }}>
-            {isValid ? "Valid Password " : "Too weak  "}
-            <ValidPasswordPopup />
-          </div>
-        )}
+      {password && (
+        <div style={{ color: isValid ? "green" : "red" }}>
+          {isValid ? "Valid Password " : "Too weak  "}
+          <ValidPasswordPopup />
+        </div>
+      )}
       <Input
         backgroundColor="white"
         margin="5px 0"
@@ -144,9 +142,13 @@ const SignUpForm = () => {
         onChange={handlePassword2Change}
       />
       {errorMessage && <Text margin="10px 0">{errorMessage}</Text>}
-      {username && isValid && email && password2 && !errorMessage ? <Button colorScheme="blue" margin="5px 0" type="submit" value="Sign Up">
-        Sign Up
-      </Button> : <Button margin="5px 0">Complete fields to sign up</Button>}
+      {username && isValid && email && password2 && !errorMessage ? (
+        <Button colorScheme="blue" margin="5px 0" type="submit" value="Sign Up">
+          Sign Up
+        </Button>
+      ) : (
+        <Button margin="5px 0">Complete fields to sign up</Button>
+      )}
     </form>
   );
 };

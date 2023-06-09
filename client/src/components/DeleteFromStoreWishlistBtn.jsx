@@ -27,7 +27,6 @@ const DeleteFromStoreWishListBtn = ({
         (id) => id !== product_id
         );
         setWishlistProductIDs(newWishListProducts);
-        console.log(wishlistProductIDs)
         toast({
           description: "Item removed from your wishlist.",
           status: "warning",

@@ -67,11 +67,8 @@ router.put('/:id', async (req, res, next) => {
   try {
     const id = Number(req.params.id)
       const { passwordOld, passwordNew } = req.body
-      console.log(passwordOld)
-      console.log(passwordNew)
       const user = await getUserById(id)
-      console.log(user[0])
-      if (comparePassword(passwordOld, user.password_hash)) {
+      if (comparePassword(passwordOld, user[0].password_hash)) {
         if (passwordNew.length < 8) {
           const customError = new Error('The password is too short. It must be 8 characters long.')
           customError.status = 400

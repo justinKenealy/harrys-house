@@ -39,7 +39,6 @@ app.use("/api/products", productsRouter);
 app.use("/api/wishlist_products", wishlistRouter);
 
 app.post("/checkout", async (req, res) => {
-  console.log(req.body);
   const items = req.body.items;
   let lineItems = [];
   items.forEach((item) => {

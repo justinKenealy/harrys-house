@@ -75,7 +75,6 @@ const CheckoutButton = () => {
         }).then((response) => {
             return response.json();
         }).then((response) => {
-            console.log(response.url)
             if(response.url) {
                 window.location.assign(response.url);
             }

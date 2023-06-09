@@ -12,7 +12,6 @@
 //     const [wishlistProducts, setWishlistProducts] = useState([]);
 //     const { products } = useProducts();
 //     const { user } = useAuth();
-//     console.log(user)
 
 //     const getProductData = (id) => {
 //         return products.find((product) => product.id === id);
@@ -32,8 +31,6 @@
 //     };
 //     getWishlistProducts();
 // //   }, []);
-
-//   console.log(wishlistProducts)
   
 //     return (
 //       <WishlistContext.Provider value={{wishlistProducts, setWishlistProducts}}>
