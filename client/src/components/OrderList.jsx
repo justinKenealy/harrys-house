@@ -12,12 +12,14 @@ import { useEffect, useState } from "react";
 import OrderListItem from "./OrderListItem";
 
 const OrderList = ({ user }) => {
+  const [allOrders, setAllOrders] = useState([]);
   const [ordersArray, setOrdersArray] = useState([]);
 
   const getOrders = async () => {
     const res = await fetch("/api/orders/" + user.id);
     const orders = await res.json();
     const idArray = orders.map((item) => item.id);
+    setAllOrders(orders)
     fetch("/api/order-items", {
       method: "POST",
       headers: {
@@ -49,18 +51,18 @@ const OrderList = ({ user }) => {
     getOrders();
   }, []);
 
-  console.log(ordersArray);
+//   console.log(ordersArray);
 
   return (
     <div id="orderListSection">
-      <Heading padding="35px 15px 5px 15px" size="md">
+      <Heading padding="35px 15px 15px 15px" size="md">
         Orders
       </Heading>
 
       <Accordion defaultIndex={[0]} allowMultiple>
         {true &&
           ordersArray.map((order) => (
-            <OrderListItem order={order}/>
+            <OrderListItem order={order} allOrders={allOrders}/>
           ))}
       </Accordion>
     </div>

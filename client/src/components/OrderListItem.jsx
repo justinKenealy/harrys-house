@@ -7,27 +7,49 @@ import {
     Box,
     Heading,
     Card,
+    Text,
+    Divider,
   } from "@chakra-ui/react";
+import { useProducts } from "../contexts/ProductsContext";
+import OrderListItemProduct from "./OrderListItemProduct";
   
-  const OrderListItem = ({ order }) => {
+  const OrderListItem = ({ order, allOrders }) => {
+    const { products } = useProducts();
 
-    console.log(order)
+    const findOrderById = (order, allOrders) => {
+        const orderIds = order.map((orderItem) => orderItem.order_id);
+        return allOrders.filter((order) => orderIds.every((id) => id === order.id));
+      };
+
+    const thisOrder = findOrderById(order, allOrders)[0];
+
+    const getProductData = (id) => {
+        return products.find((product) => product.id === id);
+      };
+
+    const totalPrice = order.reduce((accumulator, currentItem) => {
+      const quantity = currentItem.quantity;
+      const price = parseFloat(currentItem.price);
+      return accumulator + quantity * price;
+    }, 0);
 
     return (
           <AccordionItem>
             <h2>
-              <AccordionButton>
+              <AccordionButton _expanded={{ bg: 'rgb(44, 129, 199)', color: 'white' }}>
                 <Box as="span" flex="1" textAlign="left">
-                  hello!
+                  <Text as='b' padding="10px">Ordered: {thisOrder.created_at.slice(0,10)}</Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
+                {order && order.map(x => (
+                    <OrderListItemProduct quantity={x.quantity} productData={getProductData(x.product_id)} />
+
+                ))}
+                <Divider padding="5px"/>
+                <Text padding="10px" as='b'>Total Price: {totalPrice}</Text>
             </AccordionPanel>
           </AccordionItem>
     );

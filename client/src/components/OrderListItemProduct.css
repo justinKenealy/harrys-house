@@ -1,0 +1,9 @@
+.orderListProductImageDiv{
+    height: 70px;
+    width: 70px;
+}
+
+.orderListProductDiv{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+}
