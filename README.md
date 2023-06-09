@@ -9,6 +9,8 @@ Welcome to Harry's House E-commerce Application! This is a full-stack applicatio
 <div>
   <img src="./screenshots/homepage.png" alt="homepage" width="49%" style="display: inline-block; margin-right: 5px;">
   <img src="./screenshots/store.png" alt="store" width="49%" style="display: inline-block;">
+  <img src="./screenshots/account.png" alt="account" width="49%" style="display: inline-block;">
+  <img src="./screenshots/cart.png" alt="cart" width="49%" style="display: inline-block;">
 </div>
 
 ## Features
