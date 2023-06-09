@@ -14,11 +14,11 @@ Welcome to Harry's House E-commerce Application! This is a full-stack applicatio
 ## Features
 
 - User authentication: Users can sign up, log in, and log out securely.
-- Product catalog: Browse and search for various products available in Harry's House.
+- Product catalog: Users can browse and search for various products available in Harry's House.
 - Shopping cart: Add products to the cart, update quantities, and proceed to checkout.
 - Wishlist: Add or remove products to the wishlist for future reference.
 - Order management: View and track orders placed by the user.
-- Responsive design: The application is optimized for different screen sizes and devices.
+- Responsive design: The application is optimized for different screen sizes.
 
 ## Technologies Used
 
