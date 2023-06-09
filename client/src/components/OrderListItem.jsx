@@ -49,7 +49,7 @@ import OrderListItemProduct from "./OrderListItemProduct";
 
                 ))}
                 <Divider padding="5px"/>
-                <Text padding="10px" as='b'>Total Price: {totalPrice}</Text>
+                <Text padding="10px" as='b'>Total Price: ${totalPrice}</Text>
             </AccordionPanel>
           </AccordionItem>
     );
