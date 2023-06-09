@@ -31,12 +31,12 @@
 //     };
 //     getWishlistProducts();
 // //   }, []);
-  
+
 //     return (
 //       <WishlistContext.Provider value={{wishlistProducts, setWishlistProducts}}>
 //         {children}
 //       </WishlistContext.Provider>
 //     );
 //   };
-  
+
 //   export default WishlistProvider

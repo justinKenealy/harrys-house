@@ -6,7 +6,7 @@ const DeleteFromStoreWishListBtn = ({
   wishlistProductIDs,
   setWishlistProductIDs,
 }) => {
-  const toast = useToast()
+  const toast = useToast();
 
   const DeleteFromWishList = () => {
     fetch(`api/wishlist_products/${user_id}/${product_id}`, {
@@ -20,19 +20,19 @@ const DeleteFromStoreWishListBtn = ({
         console.error(error);
       });
   };
-  
+
   const handleDeleteWishlistProduct = () => {
     DeleteFromWishList(user_id, product_id);
     const newWishListProducts = wishlistProductIDs.filter(
-        (id) => id !== product_id
-        );
-        setWishlistProductIDs(newWishListProducts);
-        toast({
-          description: "Item removed from your wishlist.",
-          status: "warning",
-          duration: 3000,
-          isClosable: true,
-        })
+      (id) => id !== product_id
+    );
+    setWishlistProductIDs(newWishListProducts);
+    toast({
+      description: "Item removed from your wishlist.",
+      status: "warning",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (

@@ -14,7 +14,6 @@ import {
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthProvider";
-import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import AddToCartBtn from "./AddToCartBtn";
 import ProductCard from "./ProductCard";

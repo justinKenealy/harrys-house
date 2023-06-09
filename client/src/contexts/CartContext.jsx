@@ -12,13 +12,13 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState([]);
-  
-  // JSON.parse(localStorage.getItem('cart')) || 
+
+  // JSON.parse(localStorage.getItem('cart')) ||
   // useEffect(() => {
   //   localStorage.setItem('cart', JSON.stringify(cartProducts))
   // }, [cartProducts])
-  
-  const { products } = useProducts()
+
+  const { products } = useProducts();
 
   const getProductQuantity = (id) => {
     const quantity = cartProducts.find(
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
   const removeOneFromCart = (id) => {
     const quantity = getProductQuantity(id);
     if (quantity === 1) {
-      removeItemFromCart(id)
+      removeItemFromCart(id);
     } else {
       setCartProducts(
         cartProducts.map((product) =>
@@ -60,25 +60,25 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItemFromCart = (id) => {
-    setCartProducts(
-        cartProducts => cartProducts.filter(product => {
-            return product.id !== id;
-        })
-    )
-  }
+    setCartProducts((cartProducts) =>
+      cartProducts.filter((product) => {
+        return product.id !== id;
+      })
+    );
+  };
 
   const getProductData = (id) => {
-    return products.find(product => product.id === id)
-  }
+    return products.find((product) => product.id === id);
+  };
 
   const getTotalCost = () => {
     let totalCost = 0;
     cartProducts.map((cartItem) => {
-        const productData = getProductData(cartItem.id);
-        totalCost += (productData.price * cartItem.quantity)
-    })
-    return totalCost
-  }
+      const productData = getProductData(cartItem.id);
+      totalCost += productData.price * cartItem.quantity;
+    });
+    return totalCost;
+  };
 
   const contextValue = {
     items: cartProducts,
@@ -94,4 +94,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export default CartProvider
+export default CartProvider;

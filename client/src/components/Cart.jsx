@@ -15,18 +15,18 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { useProducts } from "../contexts/ProductsContext";
 import ItemInCartCard from "./ItemInCartCard";
-import "./Cart.css"
+import "./Cart.css";
 import { Link } from "react-router-dom";
 import CheckoutButton from "./CheckoutButton";
 import { useAuth } from "../contexts/AuthProvider";
 
 const Cart = ({ showCart, handleCloseCart }) => {
   const cart = useContext(CartContext);
-  const { user } = useAuth()
+  const { user } = useAuth();
   const { items } = cart;
   const { products } = useProducts();
-  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
-  
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH;
+
   const getProductData = (id) => {
     return products.find((product) => product.id === id);
   };
@@ -64,21 +64,35 @@ const Cart = ({ showCart, handleCloseCart }) => {
                 />
               ))}
             {items.length === 0 && (
-              <div style={{margin: '20px auto 50px auto', textAlign: 'center'}}>
+              <div
+                style={{ margin: "20px auto 50px auto", textAlign: "center" }}
+              >
                 <Text>Your cart is empty.</Text>
                 <Image
                   height="200px"
                   src={`${UrlBasepath}/assets/logo/sadCorgi.png`}
                   margin="10px auto 20px auto"
                 />
-                <Link to="/store"><Button colorScheme="blue" onClick={handleCloseCart}>Shop Now</Button></Link>
+                <Link to="/store">
+                  <Button colorScheme="blue" onClick={handleCloseCart}>
+                    Shop Now
+                  </Button>
+                </Link>
               </div>
             )}
           </ModalBody>
           {detailedCartItems.length > 0 && (
             <ModalFooter id="cartFooter">
-              <Heading size="md">Total Cost: ${cart.getTotalCost().toFixed(2)}</Heading>
-              {user ? <CheckoutButton items={items}/> : <Link to="/login"><Button onClick={handleCloseCart}>Login to checkout</Button></Link>}
+              <Heading size="md">
+                Total Cost: ${cart.getTotalCost().toFixed(2)}
+              </Heading>
+              {user ? (
+                <CheckoutButton items={items} />
+              ) : (
+                <Link to="/login">
+                  <Button onClick={handleCloseCart}>Login to checkout</Button>
+                </Link>
+              )}
             </ModalFooter>
           )}
         </ModalContent>

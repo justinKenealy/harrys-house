@@ -34,17 +34,22 @@ const Wishlist = ({ user }) => {
   return (
     <>
       <div id="wishlistSection">
-        <Heading padding="15px 15px 5px 15px" size="md">Wishlist</Heading>
+        <Heading padding="15px 15px 5px 15px" size="md">
+          Wishlist
+        </Heading>
         <div id="wishlistProductGrid">
-          {wishlistProducts.length ?
+          {wishlistProducts.length ? (
             wishlistProducts.map((product) => (
               <WishlistProductCard
                 key={product.id}
                 product={product}
                 wishlistProducts={wishlistProducts}
                 setWishlistProducts={setWishlistProducts}
-              />)) : <Text padding="10px">There are no products in your wishlist!</Text>
-            }
+              />
+            ))
+          ) : (
+            <Text padding="10px">There are no products in your wishlist!</Text>
+          )}
         </div>
       </div>
     </>

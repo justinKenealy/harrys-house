@@ -1,12 +1,11 @@
 import { Button, useToast } from "@chakra-ui/react";
-import { CartContext } from "../contexts/CartContext"
+import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 
-const AddToCartBtn = ({productTitle, productID}) => {
+const AddToCartBtn = ({ productTitle, productID }) => {
   const toast = useToast();
-  const cart = useContext(CartContext)
-  const productQuantity = cart.getProductQuantity(productID)
-  
+  const cart = useContext(CartContext);
+
   const addToCartHandler = () => {
     toast({
       title: productTitle,
@@ -14,17 +13,15 @@ const AddToCartBtn = ({productTitle, productID}) => {
       status: "success",
       duration: 3000,
       isClosable: true,
-    })
-    cart.addItemToCart(productID)
-  }
+    });
+    cart.addItemToCart(productID);
+  };
 
   return (
     <Button
       colorScheme="blue"
       margin="0 auto"
-      onClick={() => 
-        addToCartHandler()
-      }
+      onClick={() => addToCartHandler()}
     >
       Add to Cart
     </Button>

@@ -13,7 +13,7 @@ const NavBar = ({ user }) => {
   const location = useLocation();
   const [selectedPage, setSelectedPage] = useState(location.pathname);
   const cart = useContext(CartContext);
-  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH;
   const totalQuantityItems = cart.items.reduce(
     (sum, item) => sum + item.quantity,
     0

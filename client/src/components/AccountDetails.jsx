@@ -21,16 +21,18 @@ const AccountDetails = ({ user }) => {
   return (
     <>
       <div id="accountDetailsSection">
-        <Heading padding="15px 20px" size="md">Account Details</Heading>
+        <Heading padding="15px 20px" size="md">
+          Account Details
+        </Heading>
         <Card marginLeft="5px">
           <CardBody>
             <Stack divider={<StackDivider />} spacing="4">
               <Box>
                 <Heading size="xs" textTransform="uppercase">
-                  Username: 
+                  Username:
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                {user.username}
+                  {user.username}
                 </Text>
               </Box>
               <Box>
@@ -43,10 +45,10 @@ const AccountDetails = ({ user }) => {
               </Box>
               <Box>
                 <Heading size="xs" textTransform="uppercase">
-                    Password Management
+                  Password Management
                 </Heading>
                 <Text pt="2" fontSize="sm">
-                  <ChangePasswordPopup/>
+                  <ChangePasswordPopup />
                 </Text>
               </Box>
             </Stack>

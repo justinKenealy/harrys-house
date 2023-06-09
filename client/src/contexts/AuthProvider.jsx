@@ -9,8 +9,8 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate()
-  const [isLoadingUser, setIsLoadingUser] = useState(true)
+  const navigate = useNavigate();
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
 
   useEffect(() => {
     const loginCheck = async () => {
@@ -27,19 +27,19 @@ export const AuthProvider = ({ children }) => {
     const res = await fetch("api/session", {
       method: "DELETE",
     });
-    setUser(null)
+    setUser(null);
   };
 
   const register = async (fields) => {
     const res = await fetch("api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(fields),
-      });
-      const data = await res.json();
-      if (res.status !== 200) {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(fields),
+    });
+    const data = await res.json();
+    if (res.status !== 200) {
       throw {
         status: res.status,
         message: data.message,
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (fields) => {
-    setIsLoadingUser(true)
+    setIsLoadingUser(true);
     const res = await fetch("api/session", {
       method: "POST",
       headers: {
@@ -61,22 +61,24 @@ export const AuthProvider = ({ children }) => {
       throw new Error(data.message);
     }
     setUser(data);
-    setIsLoadingUser(false)
-    navigate('/')
+    setIsLoadingUser(false);
+    navigate("/");
   };
 
   const updatePassword = async (user_id, fields) => {
     const res = await fetch(`api/users/${user_id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(fields),
-      });
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(fields),
+    });
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register, updatePassword }}>
+    <AuthContext.Provider
+      value={{ user, login, logout, register, updatePassword }}
+    >
       {children}
     </AuthContext.Provider>
   );

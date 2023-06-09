@@ -25,7 +25,7 @@ const ProductCard = ({
 }) => {
   const cart = useContext(CartContext);
   const { user } = useAuth();
-  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH
+  const UrlBasepath = import.meta.env.VITE_API_SERVER_BASEPATH;
 
   return (
     <Card data-testid={`product-${product.id}`} className="productCard">

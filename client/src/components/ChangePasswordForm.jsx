@@ -7,12 +7,12 @@ const ChangePasswordForm = () => {
   const { user, updatePassword } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [password, setPassword] = useState("");
-  const [isValid, setIsValid] = useState(false)
+  const [isValid, setIsValid] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
-    updatePassword(user.id, fields)
+    updatePassword(user.id, fields);
   };
 
   const handlePasswordChange = (event) => {

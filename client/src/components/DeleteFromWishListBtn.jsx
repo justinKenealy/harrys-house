@@ -6,7 +6,7 @@ const DeleteFromWishListBtn = ({
   wishlistProducts,
   setWishlistProducts,
 }) => {
-  const toast = useToast()
+  const toast = useToast();
 
   const DeleteFromWishList = () => {
     fetch(`api/wishlist_products/${user_id}/${product_id}`, {
@@ -32,7 +32,7 @@ const DeleteFromWishListBtn = ({
       status: "warning",
       duration: 3000,
       isClosable: true,
-    })
+    });
   };
 
   return (
