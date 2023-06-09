@@ -6,9 +6,8 @@ TRUNCATE TABLE orders;
 TRUNCATE TABLE order_items;
 
 INSERT INTO users (username, email, password_hash) VALUES
-    ('justin', 'justin@gmail.com','$2b$10$W2e8IQLXxIbRiIFD1L5/aOqybUWdReZvmkvA7./bawDn5f./fuz6O'),
-    ('justin1', 'justin1@gmail.com','$2b$10$EQUIYE13YQjfaELI9sG8i.gQ2vRUJ5rreZnKzrnXArzZk.6q1M7MO'),
-    ('justin2', 'justin2@gmail.com', '$2b$10$i0RvonWiwynAQSFCsDNRduHw8cDjgVOzLCs3.P9tK7BNp9PElc7Vq');
+    ('demo', 'demo@examplemail.com', '$2a$12$M85ZIC0wTQnHMm7XIxYSQ.3/.ev4eGwkihVD9vekRZTOaNYsnUi4W'),
+    ('justin', 'justin@gmail.com','$2b$10$W2e8IQLXxIbRiIFD1L5/aOqybUWdReZvmkvA7./bawDn5f./fuz6O');
 
 
 INSERT INTO products (name, description, stock, price, category, img_url) VALUES
@@ -65,10 +64,10 @@ INSERT INTO products (name, description, stock, price, category, img_url) VALUES
 INSERT INTO wishlist_products (user_id, product_id) VALUES
     (1, 1),
     (1, 2),
-    (2, 2),
+    (1, 3),
     (2, 3),
-    (3, 3),
-    (3, 4);
+    (2, 4),
+    (2, 5);
 
 
 INSERT INTO reviews (user_id, product_id, rating, comment) VALUES
@@ -78,18 +77,33 @@ INSERT INTO reviews (user_id, product_id, rating, comment) VALUES
     (3, 4, 2, 'average product');
 
 
-INSERT INTO orders (user_id) VALUES
-    (1),
-    (2),
-    (3),
-    (3);
+INSERT INTO orders (user_id, created_at)
+VALUES
+    (1, NOW() - INTERVAL '1 day'),
+    (1, NOW() - INTERVAL '3 days'),
+    (2, NOW() - INTERVAL '2 days'),
+    (2, NOW() - INTERVAL '5 days'),
+    (1, NOW() - INTERVAL '7 days'),
+    (2, NOW() - INTERVAL '6 days');
 
 
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
-    (1, 1, 2, 19.99),
-    (1, 2, 1, 29.99),
-    (2, 2, 3, 29.99),
-    (2, 3, 1, 39.99),
-    (3, 3, 3, 39.99),
-    (3, 4, 2, 49.99),
-    (4, 1, 1, 19.99);
+INSERT INTO order_items (order_id, product_id, quantity, price)
+VALUES
+    (1, 1, 2, 10.99),
+    (1, 3, 1, 5.99),
+    (1, 6, 3, 7.99),
+    (2, 2, 1, 8.99),
+    (2, 4, 2, 12.99),
+    (2, 7, 1, 9.99),
+    (3, 5, 4, 6.99),
+    (3, 8, 2, 11.99),
+    (3, 9, 1, 8.99),
+    (4, 2, 3, 8.99),
+    (4, 3, 1, 5.99),
+    (4, 6, 2, 7.99),
+    (5, 1, 1, 10.99),
+    (5, 4, 2, 12.99),
+    (5, 7, 1, 9.99),
+    (6, 5, 3, 6.99),
+    (6, 8, 1, 11.99),
+    (6, 10, 1, 9.99);

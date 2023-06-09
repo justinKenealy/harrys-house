@@ -48,6 +48,16 @@ To run the Harry's House E-commerce Application locally, follow these steps:
 8. Navigate to the /client route and start the frontend server `npm run dev`
 8. Open your browser and visit `http://localhost:5173` to see the application.
 
+## Testing
+
+This project includes a suite of tests to ensure its functionality. The tests are written using the vitest framework and can be executed as follows:
+
+1. Ensure all project dependencies are installed on the frontend: `cd client && npm install`
+2. If necessary, navigate to the client directory: `cd client`
+3. Run the testing command `npm test`
+
+Each test file contains multiple test cases, which are written using the and 'it' function. Within each test case, assertions are made using various testing methods to verify the expected behavior of the code.
+
 ## Contact
 
 If you have any questions or need further assistance, please feel free to contact the me at justinmkenealy@gmail.com
