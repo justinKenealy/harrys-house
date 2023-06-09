@@ -1,4 +1,4 @@
-import { Button, Input } from "@chakra-ui/react";
+import { Button, Input, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
 import ValidPasswordPopup from "./ValidPasswordPopup";
@@ -6,27 +6,49 @@ import ValidPasswordPopup from "./ValidPasswordPopup";
 const SignUpForm = () => {
   const { register } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
+  const [userTaken, setUserTaken] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const toast = useToast();
+  
+  const handleRegisterSuccessful = () => {
+    toast({
+      description: "Account created successfully!",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    })
+    setUsername('')
+    setEmail('')
+    setPassword('')
+    setPassword2('')
+  }
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const fields = Object.fromEntries(new FormData(e.target));
     console.log(fields)
-    if (fields.password !== fields.passwordConfirm) {
-      setErrorMessage("Passwords must match");
-      return;
-    }
+    
     try {
       await register(fields);
-      
+      console.log('account created')
+      handleRegisterSuccessful()
+      return
     } catch (err) {
-      setErrorMessage("Username or email already taken. Try again.")
+      setUserTaken("Username or email already taken. Try again.")
+      setUsername('')
+      setEmail('')
+      setPassword('')
+      setPassword2('')
       console.log(err);
     }
   };
 
   const handlePasswordChange = (event) => {
+    setUserTaken("")
     setErrorMessage("");
     const newPassword = event.target.value;
     setPassword(newPassword);
@@ -36,6 +58,28 @@ const SignUpForm = () => {
     } else {
       setIsValid(false);
     }
+  };
+
+  const handlePassword2Change = (event) => {
+    setUserTaken("")
+    const newPassword = event.target.value;
+    setPassword2(newPassword);
+    if (password !== password2) {
+      setErrorMessage("Passwords must match");
+      return;
+    }
+  };
+
+  const handleUsernameChange = (event) => {
+    setUserTaken("")
+    const newUsername = event.target.value;
+    setUsername(newUsername);
+  };
+
+  const handleEmailChange = (event) => {
+    setUserTaken("")
+    const newEmail = event.target.value;
+    setEmail(newEmail);
   };
 
   const passwordValidator = (password) => {
@@ -55,12 +99,15 @@ const SignUpForm = () => {
 
   return (
     <form id="newUserForm" onSubmit={handleRegisterSubmit}>
+      {userTaken && <Text margin="10px 0">{userTaken}</Text>}
       <Input
         backgroundColor="white"
         margin="5px 0"
         type="text"
         name="username"
         placeholder="username"
+        value={username}
+        onChange={handleUsernameChange}
       />
       <Input
         backgroundColor="white"
@@ -68,6 +115,8 @@ const SignUpForm = () => {
         type="text"
         name="email"
         placeholder="email address"
+        value={email}
+        onChange={handleEmailChange}
       />
       <Input
         backgroundColor="white"
@@ -90,12 +139,13 @@ const SignUpForm = () => {
         type="password"
         name="passwordConfirm"
         placeholder="confirm password"
-        onChange={() => setErrorMessage("")}
+        value={password2}
+        onChange={handlePassword2Change}
       />
-      {errorMessage && <div>{errorMessage}</div>}
-      <Button colorScheme="blue" margin="5px 0" type="submit" value="Sign Up">
+      {errorMessage && <Text margin="10px 0">{errorMessage}</Text>}
+      {username && isValid && email && password2 && !errorMessage ? <Button colorScheme="blue" margin="5px 0" type="submit" value="Sign Up">
         Sign Up
-      </Button>
+      </Button> : <Button margin="5px 0">Complete fields to sign up</Button>}
     </form>
   );
 };

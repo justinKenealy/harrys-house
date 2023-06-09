@@ -13,6 +13,7 @@ router.post("/", async (req, res, next) => {
     obj[key] = value.trim();
     return obj;
   }, {});
+
   try {
     if (!username || !email || !password || !passwordConfirm) {
       const customError = new Error("All fields must be complete.");

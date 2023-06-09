@@ -5,7 +5,7 @@ const registerUser = (username, email, password_hash) => {
     "INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3);";
   return db
     .query(sql, [username, email, password_hash])
-    .then((res) => res.rows[0]);
+    .then((res) => res.rows);
 };
 
 const getAllUsers = () => {
