@@ -38,6 +38,7 @@ const LoginForm = () => {
         placeholder="password"
         onChange={() => setLoginFailed("")}
       />
+      <Text margin="15px 0">Demo Account - username: demo/ password: Demo1234$</Text>
       <Button colorScheme="blue" margin="5px 0" type="submit" value="Login">
         Login
       </Button>
