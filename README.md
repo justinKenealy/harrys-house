@@ -47,6 +47,60 @@ Welcome to Harry's House E-commerce Application! This is a full-stack applicatio
 - As a customer, I want to be able to create an account and log in, so that I can view my order history and easily place future orders.
 - As a customer, I want to be able to update my password.
 
+## Database Structure
+
+### users Table
+
+| Column         | Type          | Constraints      |
+|----------------|---------------|------------------|
+| id             | SERIAL        | PRIMARY KEY      |
+| username       | VARCHAR(255)  | UNIQUE NOT NULL  |
+| email          | VARCHAR(255)  | UNIQUE NOT NULL  |
+| password_hash  | VARCHAR(255)  | NOT NULL         |
+
+### products Table
+
+| Column        | Type          | Constraints            |
+|---------------|---------------|------------------------|
+| id            | SERIAL        | PRIMARY KEY            |
+| name          | VARCHAR(255)  | NOT NULL               |
+| img_url       | VARCHAR(255)  |                        |
+| description   | TEXT          |                        |
+| stock         | INT           | NOT NULL               |
+| price         | DECIMAL(10, 2)| NOT NULL               |
+| category      | INT           | NOT NULL               |
+| created_at    | TIMESTAMP     | DEFAULT CURRENT_TIMESTAMP |
+
+### wishlist_products Table
+
+| Column       | Type    | Constraints         |
+|--------------|---------|---------------------|
+| user_id      | INT     | NOT NULL            |
+| product_id   | INT     | NOT NULL            |
+| FOREIGN KEY  |         | (user_id) REFERENCES users (id)    |
+| FOREIGN KEY  |         | (product_id) REFERENCES products (id) |
+
+### orders Table
+
+| Column       | Type    | Constraints            |
+|--------------|---------|------------------------|
+| id           | SERIAL  | PRIMARY KEY            |
+| user_id      | INT     | NOT NULL               |
+| created_at   | TIMESTAMP | DEFAULT CURRENT_TIMESTAMP |
+| FOREIGN KEY  |         | (user_id) REFERENCES users (id) |
+
+### order_items Table
+
+| Column       | Type          | Constraints               |
+|--------------|---------------|---------------------------|
+| id           | SERIAL        | PRIMARY KEY               |
+| order_id     | INT           | NOT NULL                  |
+| product_id   | INT           | NOT NULL                  |
+| quantity     | INT           | NOT NULL                  |
+| price        | DECIMAL(10, 2)| NOT NULL                  |
+| FOREIGN KEY  |               | (order_id) REFERENCES orders (id)    |
+| FOREIGN KEY  |               | (product_id) REFERENCES products (id) |
+
 
 ## Installation
 
