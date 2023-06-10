@@ -1,6 +1,6 @@
 # Harry's House E-commerce Application
 
-Welcome to Harry's House E-commerce Application! This is a full-stack application built with React for the frontend, Node.js and Express for the backend, and PostgreSQL for the database. 
+Welcome to Harry's House E-commerce Application! This is a full-stack application built that leverages React, Node.js, and PostgreSQL. The use of ChakraUI contributes to the application's appealing and user-friendly design. 
 
 *Harry's House* stocks a wide range of products for dogs, cats, birds, fish, and more. Users can browse the products in the store, using search queries and filters to locate their desired products. Users can create an account to save products in a wishlist, or go straight to adding them to their cart before checking out with the inbuilt Stripe API.  
 
@@ -33,6 +33,20 @@ Welcome to Harry's House E-commerce Application! This is a full-stack applicatio
 - RESTful APIs: Backend APIs for communication between the frontend and backend.
 - Git and Github: Version control system for tracking changes and collaboration.
 - Heroku: Cloud platform for hosting and deploying the application.
+
+## User Stories
+
+- As a customer, I want to be able to browse through a variety of products offered by Harry's House.
+- As a customer, I want to be able to search for specific products, so that I can quickly find what I'm looking for.
+- As a customer, I want to view detailed product information, including images, descriptions, and prices, so that I can make informed purchasing decisions.
+- As a customer, I want to be able to add products to my shopping cart, so that I can keep track of the items I wish to purchase.
+- As a customer, I want to be able to adjust the quantity of items in my shopping cart, so that I can easily update my order.
+- As a customer, I want to be able to remove items from my shopping cart.
+- As a customer, I want to be able to proceed to checkout and provide my shipping and payment information, so that I can complete my purchase.
+- As a customer, I want to receive confirmation and order details after completing my purchase, so that I have a record of my transaction.
+- As a customer, I want to be able to create an account and log in, so that I can view my order history and easily place future orders.
+- As a customer, I want to be able to update my password.
+
 
 ## Installation
 
