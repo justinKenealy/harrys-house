@@ -130,6 +130,6 @@ Each test file contains multiple test cases, which are written using the and 'it
 
 ## Contact
 
-If you have any questions or need further assistance, please feel free to contact the me at justinmkenealy@gmail.com
+If you have any questions or need further assistance, please feel free to contact the at justinmkenealy@gmail.com
 
 Happy shopping at Harry's House E-commerce
